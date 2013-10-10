@@ -1,0 +1,236 @@
+\chapter{Introducción}
+\label{cap:introduccion}
+
+La Robótica es uno de los retos tecnológicos más desafiantes a los que nos enfrentamos. Uno de los objetivos del grupo de Robótica de la Universidad Rey Juan Carlos es crear máquinas que nos hagan la vida más fácil e interactúen con nosotros con cierto grado de autonomía.\\
+
+Una de las líneas de investigación del grupo se realiza mediante la participación en la liga de fútbol de la \textit{RoboCup}\footnote{http://www.robocup.org}, una competición que plantea el fútbol como un banco de pruebas de tecnología robótica en la que los robots se enfrentan jugando partidos de fútbol de manera autónoma. La \textit{RoboCup} es un proyecto internacional nacido en 1997 y creado para promover, a través de distintas competiciones, la investigación y educación en Inteligencia Artificial y la Robótica. En concreto, el grupo participa en la \textit{Standard Platform League}. Esta competición se caracteriza por que todos los equipos compiten con el mismo robot, focalizando los esfuerzos en la creación de software. Actualmente se utiliza el humanoide Nao, fabricado por la empresa francesa \textit{Aldebaran Robotics}\footnote{http://www.aldebaran-robotics.com}. La figura \ref{fig:robocup} es una imagen tomada en la Robocup German Open 2012, última competición en la que participó el equipo del grupo de Robótica de la Universidad.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=12cm]{img/cap1/robocup}
+  \end{center}
+  \caption{Imagen de un partido de fútbol de la Robocup German Open 2012.}
+  \label{fig:robocup}
+\end{figure}\
+
+Hace tres años surgió la oportunidad, a través de la Fundación CIEN, de poder aplicar todo el software desarrollado para la competición en un entorno completamente distinto y con unas metas también muy diferentes. Se brindó al grupo la posibilidad de aplicar toda esta tecnología robótica a un objetivo social empleando los conocimientos adquiridos en la competición. Se propuso utilizar al robot como herramienta en una investigación en terapias de la enfermedad de Alzheimer.\\
+
+Este proyecto fin de carrera forma parte de esta investigación, compuesto a su vez por otros proyectos fin de carrera y el trabajo realizado por los miembros del grupo de robótica.\\
+
+En este capítulo se presenta la robótica en términos generales. Se definirá el término \textit{Robot} y hablaremos de elementos comunes a éstos, independientemente del tipo que sean. Luego se explicará qué es la robótica móvil y, por último, nos centraremos en el área de la robótica en la que se ubica nuestro proyecto: la robótica social. Para terminar se expondrá cómo está estructurado este documento.\\
+
+\section{Robótica}
+\label{sec:robotica}
+
+La robótica es la rama de la ciencia que estudia los robots. El término \textit{Robot} es difícil de definir. Fue introducido por el escritor checo Karen Capek en su obra R.U.R. (Robots Universales de Rossum), estrenada en 1921. Esta palabra deriva de la palabra checoslovaca \textit{Robota} que significa literalmente trabajar y figuradamente trabajo duro o penoso. No hay única definición que satisfaga a todos los organismos internacionales de estandarización. Por ejemplo, la IFR (International Federation of Robotics) utiliza la definición propuesta por la ISO (Organización Internacional para la Estandarización) incluido en el ISO 8373. En este documento se define como \textit{manipulador programable en tres o más ejes, multipropósito, controlado automáticamente y reprogramable}. Esta definición también es usada por otros comités como el EURON (EUropean RObotics research Network). En cambio, la RIA (Robotic Industries Association) define el término robot como \textit{manipulador reprogramable y multifuncional diseñado para mover materiales, partes, herramientas o dispositivos especializados a través de movimientos programados para la realización de una serie de tareas}. Esta definición es un poco más amplia que la anterior. Por último, la RAE define el término robot como \textit{máquina o ingenio electrónico programable, capaz de manipular objetos y realizar operaciones antes reservadas solo a las personas}.\\
+
+Como se puede comprobar, cada una de las definiciones de robot es distinta de las otras. En mi opinión, la definición contenida en la ISO 8373 y la dada por la RIA están muy centradas en la robótica industrial. De hecho, define al robot como un manipulador. En el lado opuesto, la definición proporcionada por la RAE es demasiado amplia y abstracta. A mi juicio, un robot es una máquina programable capaz de interactuar con su entorno, ya sea modificándolo directamente o desplazándose por él, para realizar una o varias tareas. Las tareas asignadas suelen ser aquellas que por su peligrosidad, repetición o precisión suponen una liberación para las personas.\\
+
+Desde siempre, el ser humano ha intentado construir máquinas que le liberen, simplifiquen o faciliten el trabajo. Los antiguos egipcios unieron brazos mecánicos a las estatuas de sus dioses y los griegos construyeron estatuas con sistemas hidráulicos. Estas estatuas automatizadas eran utilizadas para atemorizar, fascinar e infundir respeto al pueblo. Estos inventos pueden considerarse como los primeros \textit{''robots''} de la historia, aunque distan mucho de los robots actuales.\\
+
+El inicio de la robótica, tal y como la vemos en estos momentos, puede fijarse en el siglo XVIII. En 1801 el francés Joseph Jacquard inventó un telar mecánico programable mediante tarjetas perforadas (Figura \ref{fig:telar-jacquard-general}). Esta máquina permitía elaborar diseños de telares complejos a usuarios inexpertos. Cada tarjeta perforada correspondía a una línea del diseño y la unión de varias tarjetas formaban un patrón con el que se tejería el telar. En esta época también se construyeron algunos artilugios curiosos, como una muñeca mecánica capaz de hacer dibujos de forma autónoma, inventada por Henri Maillardert, o unos músicos de tamaño humano creados por Jacques de Vauncansos. Estos \textit{''robots''} tenían un propósito más de ocio que laboral.\\
+
+\begin{figure}[t]
+  \centering
+  \subfloat[El telar de Jacquard.]{
+    \label{fig:telar-jacquard}
+    \includegraphics[width=8cm]{img/cap1/telar-jacquard}
+  }
+  \subfloat[Tarjeta programable del telar.]{
+    \label{fig:tarjeta-jacquard}
+    \includegraphics[width=8cm]{img/cap1/tarjeta-jacquard}
+  }
+  \caption{El telar de Jacquard está expuesto en el Museo de la ciencia y la industria en Manchester, Inglaterra.}
+  \label{fig:telar-jacquard-general}
+\end{figure}
+
+
+
+Pero no fue hasta mediados del siglo XX, gracias a los avances en inteligencia artificial, cuando se crearon los primeros robots modernos. El primer robot industrial programable se construye e instala en 1961 en la \textit{Ford Motors Company}, se llamaba \textit{Unimate}. Su cometido era el levantar piezas industriales que estaban a altas temperaturas. Sin embargo, es en la década de los 70 cuando comienza a desarrollarse completamente la robótica. En 1973 aparece el primer robot con 6 ejes electromecánicos (Figura \ref{fig:famulus}) y, a los pocos años el primer brazo mecánico programable 
+(Figura \ref{fig:puma}). Estos primeros robots modernos eran básicamente manipuladores, es decir, brazos mecánicos fijos en el suelo que realizan una tarea concreta.\\
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[FAMULUS]{
+    \label{fig:famulus}
+    \includegraphics[width=8cm]{img/cap1/famulus}
+  }
+  \subfloat[PUMA]{
+    \label{fig:puma}
+    \includegraphics[width=8cm]{img/cap1/puma}
+  }
+  \caption{Dos de los primeros robots programables en la década de los 70.}
+\end{figure}
+
+Los robots definen su funcionalidad y características en función de una serie de elementos hardware. Estos elementos son los encargados de recibir estímulos, procesarlos y efectuar una respuesta. Los elementos hardware se clasifican en sensores, actuadores y procesadores: 
+
+\begin{itemize}
+  \item \textbf{Sensores.} Son dispositivos que miden propiedades del entorno tales como distancia, temperatura, intensidad lumínica o señal GPS entre otros. También existen los sensores propioceptivos que miden propiedades del robot, como puede ser la temperatura de los motores para prevenir que se quemen o el número de vueltas que da una rueda. Los sensores más utilizados son: 
+    \begin{enumerate}
+      \item \textbf{Ultrasonido.} Es un dispositivo que sirve para medir distancias. La distancia se calcula midiendo el tiempo de vuelo de una onda sonora, cuya frecuencia está por encima del espectro audible por el oído humano, emitida por el dispositivo, es decir, el tiempo que tarda la onda en volver después de rebotar en un obstáculo. Una vez conocido el tiempo de vuelo y la velocidad de una onda sonora, la distancia se calcula por medio de una sencilla operación matemática. La precisión de este dispositivo es bastante pobre.
+      \item \textbf{Láser.} El láser también sirve para medir distancias y ésta se calcula de la misma manera que lo hace el ultrasonido, sólo que en vez de utilizar una onda sonora, utiliza una frecuencia de luz del espectro no visible. Este dispositivo es más preciso que el ultrasonido, pero también más caro. Un ultrasonido tiene un precio del orden de decenas de dólares, mientras que un láser tiene un precio de miles de dólares.
+      \item \textbf{Cámara.} Este sensor es uno de los más populares. En un sensor muy rico y barato, el único problema de este dispositivo es la dificultad de interpretar las imágenes por el costo computacional que conlleva dicha tarea.
+  \end{enumerate}
+En la figura \ref{fig:nao-laser} se puede ver al robot Nao equipado con un laser en la cabeza, aunque este dispositivo es opcional. El robot también dispone de ultrasonidos en el pecho, colocados en la banda azul que rodea el botón central, y de dos cámaras colocadas una en la frente y la otra en la boca.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap1/nao-laser}
+  \end{center}
+  \caption{Robot Nao equipado con un laser en la cabeza.}
+  \label{fig:nao-laser}
+\end{figure}\
+
+\item \textbf{Actuadores.} Son dispositivos que modifican el estado del robot o su entorno. Los manipuladores o brazos robóticos son un ejemplo de actuadores que pueden interactuar con el entorno, pero también lo son los altavoces o los LEDs. Es importante destacar en este punto la existencia de dos grandes familias de robots: los robots fijos y los robots móviles. Los robots fijos suelen encontrarse en la robótica industrial. Los robots móviles, que como su nombre indica, son aquellos capaces de desplazarse por el entorno. En la siguiente sección se hablará más sobre este último tipo de robot en función de su forma de desplazarse.
+
+\item \textbf{Procesadores.} Son elementos encargados de procesar los datos obtenidos de los sensores, analizarlos, comprenderlos y generar una respuesta que ejecutarán los actuadores. Comparando un robot con una persona y haciendo una analogía simple, se puede decir que los sensores, actuadores y procesadores son los sentidos, músculos y cerebro, respectivamente.
+\end{itemize}
+
+
+\section{Robótica móvil}
+\label{sec:roboticamovil}
+
+Como hemos comentado anteriormente existen dos grandes familias de robots: los robots fijos y los robots móviles. Los robots fijos son robots que suelen estar anclados al suelo o pueden tener un poco de movimiento por medio de raíles o algún otro método similar que proporcionan al robot una movilidad muy reducida. Los típicos robots fijos son los manipuladores que se encuentran en las cadenas de montaje. La mayoría disponen de un brazo mecánico con varios grados de libertad con el que interactúan con su entorno. Estos robots han evolucionado mucho gracias a la gran inversión que ha realizado la industria en las últimas décadas. En concreto, la industria automovilística con la soldadura de carrocerías ha sido la gran impulsora de la robótica industrial.\\
+
+La otra gran familia de robots, los robots móviles, también se les conoce como robots de servicio. Este término, robots de servicio, apareció a finales de los años 80 por la necesidad de construir sistemas y robots que fuesen capaces de trabajar en diferentes entornos, con condiciones ambientales muy diversas y fuesen autónomos o prácticamente autónomos. La característica principal de este tipo de robots es que pueden desplazarse por el entorno que les rodea para realizar una tarea. Un ejemplo de este tipo de robots es la sonda espacial enviada a Marte por la NASA, Curiosity (Figura \ref{fig:curiosity}). La misión de este robot es la de determinar si existió vida en el planeta y determinar la geología y el clima para estudiar su habitabilidad.
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[Robot soldador]{
+    \label{fig:robotsoldador}
+    \includegraphics[width=7cm]{img/cap1/robotsoldador}
+  }
+  \subfloat[Sonda Curiosity]{
+    \label{fig:curiosity}
+    \includegraphics[width=7cm]{img/cap1/curiosity}
+  }
+  \caption{El robot soldador es un ejemplo de un robot fijo mientras que la sonda Curiosity es un robot móvil.}
+\end{figure}
+
+Los robots móviles pueden clasificarse según el medio por el que se desplazan porque estos influye de manera determinante en los sensores, los actuadores, la localización o la navegación. Estos son:
+
+\begin{itemize}
+  \item \textbf{Terrestres.} Son los robots más comunes y se desplazan por el suelo. Los medios de locomoción típicos son las ruedas y las patas. Las ruedas son los actuadores más baratos, sencillos de utilizar y estables. Se pueden conseguir velocidades altas y la odometría es bastante precisa. Funcionan muy bien en terrenos llanos o poco abruptos, pero son incapaces de salvar grandes desniveles. La sonda Curiosity (Figura \ref{fig:curiosity}) es un ejemplo de un robot con ruedas.\\
+Los robots con patas, en cambio, presenta una serie de dificultades añadidas que complican su funcionamiento. Primero, es necesario conseguir un buen equilibrio para que el robot sea estable y segundo, coordinar los movimientos de las patas para que éste se desplace son tareas bastante complejas. Las velocidades que se alcanzan son bajas y la odometría es muy imprecisa. A cambio de estos inconvenientes, se gana la capacidad de moverse por mayor diversidad de terrenos, y de construir robots parecidos a animales o a humanos. El robot Aibo (Figura \ref{fig:aibo}) utiliza cuatro patas para desplazarse.\\
+Existen otras formas de desplazamiento por el medio terrestre como los robots modulares (Figura \ref{fig:robot-modular}), que imitan el movimientos de las serpientes o de los gusanos para desplazarse.
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[Perrito Aibo]{
+    \label{fig:aibo}
+    \includegraphics[width=3.5cm]{img/cap1/aibo}
+  }
+  \subfloat[Robot Pionner equipado con un sensor láser]{
+    \label{fig:pionner}
+    \includegraphics[width=4.5cm]{img/cap1/pionner}
+  }
+  \subfloat[Robot modular]{
+    \label{fig:robot-modular}
+    \includegraphics[width=4.5cm]{img/cap1/robot-modular}
+  }
+  \caption{Distintos ejemplos de robots terrestres.}
+\end{figure}
+
+\item \textbf{Voladores.} Los robots voladores son aquellos que se desplazan por el aire. También son conocidos por las siglas UAV (\textit{Unmanned Aerial Vehicle)}. Son utilizados mayoritariamente en aplicaciones militares. El método de impulsión más popular, al igual que en los robots acuáticos, son las hélices. Actualmente, se están popularizando mucho los cuadricópteros. Estos robots están equipados con cuatro hélices que le aportan mucha estabilidad y control. En la figura \ref{fig:drone} se puede ver un robot de este tipo, el Parrot AR-Drone. Exceptuando el robot que acabamos de comentar, los UAV son utilizados mayoritariamente en aplicaciones militares. En la figura \ref{fig:avion-espia} tenemos un MQ-9 Reaper. Se trata de una aeronave no tripulada con capacidad de ataque con misiles.
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[MQ-9 Reaper]{
+    \label{fig:avion-espia}
+    \includegraphics[width=7cm]{img/cap1/avion-espia}
+  }
+  \subfloat[Parrot AR-Drone]{
+    \label{fig:drone}
+    \includegraphics[width=7cm]{img/cap1/drone}
+  }
+  \caption{Distintos ejemplos de robots aéreos.}
+\end{figure}
+
+\item \textbf{Acuáticos.} Estos robots se desplazan por encima o por debajo del agua. El método de impulsión típico son las hélices. Los submarinos robóticos se utilizan, por ejemplo, en tareas de reparación o mantenimiento de cables interoceánicos u oleoductos y exploración del fondo marino. Los barcos robóticos se utilizan, sobretodo, en tareas militares de reconocimiento y vigilancia.
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[Barco robótico]{
+    \label{fig:barcorobotico}
+    \includegraphics[width=7cm]{img/cap1/barcorobotico}
+  }
+  \subfloat[Submarino robótico]{
+    \label{fig:submarinorobotico}
+    \includegraphics[width=7cm]{img/cap1/submarinorobotico}
+  }
+  \caption{Distintos ejemplos de robots acuáticos.}
+\end{figure}
+
+\item \textbf{Espaciales.} Este tipo de robots se utilizan en el espacio. La mayor parte de ellos se utilizan en tareas de reconocimiento y de investigación. La sonda Curiosity (Figura \ref{fig:curiosity}) es un robot híbrido, ya que, aparte de ser un robot espacial (su misión es reconocer y estudiar la superficie de Marte para determinar su habitabilidad), es un robot terrestre. El principal problema que presentan las sondas espaciales, sean del tipo que sean, es el retardo en la comunicación entre ésta y la Tierra debido a la distancia. Es por esto que una característica muy importante en este tipo de robots es la autonomía.
+\end{itemize}
+
+Todos los robots móviles, independientemente del medio de locomoción que incorporen, comparten una serie de problemas comunes derivados del hecho de desplazarse y compartir su entorno con humanos. Entre estos problemas, destacamos:
+
+\begin{itemize}
+
+\item \textbf{Localización.} Consiste en averiguar dónde nos encontramos dentro de entorno conocido. En exteriores ese problema está resuelto gracias a la señal GPS. El dispositivo GPS calcula la posición donde se encuentra gracias a una red de satélites que orbitan alrededor de la Tierra y que emiten cada uno una señal. Esta señal es recibida por el dispositivo y por ''triangulación'' calcula la posición donde se encuentra, aún así la precisión es pobre, por lo que se utiliza junto a otros métodos de localización para que sea más exacta. En interiores el problema de la localización se complica. Como la señal GPS no suele recibirse correctamente dentro de edificios este método no es adecuado. En este tipo de entornos suelen utilizarse algoritmos probabilísticos que calculan su posición a partir de su información sensorial. Esta posición puede calcularse en un mapa construido \textit{a priori}, o que se construye en el proceso de localización como SLAM (Simultaneous Localization And Mapping). La información utilizada por estos algoritmos suele ser la proporcionada por los láser, los ultrasonidos, las cámaras o la odometría. Este entorno suele ser bastante cambiante, lo que provoca que el robot perciba objetos o personas que temporalmente se encuentren en medio y hagan que el robot no pueda calcular con precisión su posición.
+
+\item \textbf{Navegación.} Esta consiste en atravesar un entorno evitando los obstáculos para llegar a un destino. La navegación se divide en dos: navegación global y navegación local. La navegación global consiste en alcanzar una meta utilizando un mapa. Este puede conocerse \textit{a priori} o construirse automáticamente. Los algoritmos de navegación global localizan al robot en este mapa y los destinos que debe alcanzar el robot suelen ser lejanos. Una de las técnicas más utilizada es la planificación de caminos. La navegación local se encarga de dirigir al robot sin utilizar un mapa. Esta navegación esta basada en sensores y los destinos suelen ser cercanos. Los algoritmos de navegación local deben de ser reactivos para poder reaccionar ante imprevistos. Los algoritmos más populares son CVM (método de Velocidad y Curvatura), LVM (método de Carriles y Velocidad), VFF (campos de potencial) y superposición de campos.
+
+\item \textbf{Interacción hombre-máquina.} Este problema es mucho más abierto y abstracto que los otros dos, de hecho, abarca multitud de campos como la psicología, la inteligencia artificial, la robótica, la medicina o las humanidades, entre otros. El objetivo de la interacción hombre-máquina consiste en realizar el intercambio de información entre el robot y el hombre de la forma más eficiente posible minimizando los errores y aumentando la productividad. Las interfaces para comunicarse con un robot deben ser lo más completas posibles, sin perder de vista la simplicidad y la intuitividad. El problema de la interacción hombre-máquina es crítico, ya que puede hacer fracasar un proyecto con unos resultados muy buenos por requerir un proceso de aprendizaje del sistema demasiado complejo. La robótica social, de la cual hablaremos en la siguiente sección, es un ejemplo donde la capacidad de interactuar con el robot de una manera simple e intuitiva es vital.\\
+
+\item \textbf{Coordinación.} La coordinación entre varios robots es un problema que aún no se ha resuelto eficientemente. El objetivo es que un grupo de robots realicen una tarea interactuando unos con otros. Actualmente se está investigando en controles de robots colaborativos basados en reglas.\\
+
+\end{itemize}
+
+\section{Robótica social}
+\label{sec:roboticasocial}
+
+Un robot social es un robot que interactúa con personas y se comunica con ellas siguiendo comportamientos, patrones y normas sociales. Una de las características físicas más importantes en este tipo de robots es la apariencia. Ésta debe ser aceptada por un humano, por lo que se recurre a robots con aspecto humanoide o animal conocido. También es muy importante que presenten rasgos agradables y atractivos, para no producir un rechazo en los usuarios.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap1/valleinquietante}
+  \end{center}
+  \caption{Teoría del valle inquietante expuesta por el japonés Masahiro Mori.}
+  \label{fig:valleinquietante}
+\end{figure}\
+
+Un fenómeno interesante y de gran impacto en la relación hombre-máquina es el fenómeno de la teoría del valle inquietante (Figura \ref{fig:valleinquietante}). Fue expuesta por el japonés Masahiro Mori en 1970, \cite{Masahiro70}. Esta teoría refleja la respuesta emocional de una persona hacia un robot con apariencia humana. Cuanto mayor es el parecido con un ser humano, la respuesta emocional y empática crece hasta alcanzar un punto en el que se produce el efecto contrario, provocando rechazo. Una vez que el robot es indistinguible de un ser humano la respuesta emocional vuelve a crecer de forma positiva. Una posible explicación a este fenómeno es que en un robot que no parezca una persona, las características humanas se ven más resaltadas, mientras que uno con apariencia casi igual a una persona se resaltan las contrarias, las características no humanas. Es decir, se ve al robot como una especia de ''zombie'' que produce rechazo. Es la misma reacción que se produce al observar un cadáver. Por esto es muy importante la apariencia de los robots sociales. Ésta debe ser agradable y amistosa, que no se vea como una amenaza para el usuario. La apariencia del robot puede marcar la diferencia entre el éxito o el fracaso de una investigación o una aplicación robótica, ya que si de primeras el robot no es aceptado, probablemente el proyecto fracase.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=12cm]{img/cap1/kismet}
+  \end{center}
+  \caption{Expresiones faciales del robot Kismet.}
+  \label{fig:kismet}
+\end{figure}\
+
+El primer robot cuyo principal objetivo era interactuar con humanos es Kismet, \cite{Breazeal99} y \cite{Breazeal2000}. Kismet es un robot capaz de realizar la interacción social básica que tienen las personas leyendo las emociones a través de la voz. En cualquier idioma, un comentario positivo tiene un tono distinto al de un comentario negativo. Kismet puede comprender el tono de voz e interpretarlo. Este robot también sabe expresar sus emociones por medio de gestos de la cara. Por ejemplo, cuando está cansado inclina los ojos hacia abajo, en cambio si está contento se sienta erguido y sonríe. Se produce una interacción entre el robot y el humano natural obteniendo una comunicación más empática. En la figura \ref{fig:kismet} pueden verse distintas expresiones del robot.\\
+
+Otro robot social es Paro. Se trata de una foca robótica utilizada para propósitos terapéuticos con pacientes discapacitados, ancianos o niños autistas en centros hospitalarios o residencias de mayores, \cite{Shibata2003} y \cite{Shibata2009}. Este robot dispone de varios sensores que le permiten interactuar con la persona que lo utiliza. Dispone de un sensor de luz con el que reconoce la oscuridad o la luz. Gracias a los sensores táctiles es capaz de reconocer si es acariciado o tocado y responder a esos estímulos. También reconoce la dirección de la voz y algunas palabras como su nombre, saludos o mimos. Este robot se ha utilizado en terapias reales con pacientes de autismo con resultados positivos. En la figura \ref{fig:paro} se puede ver al robot Paro en una sesión terapéutica.\\
+
+En la misma línea de robótica social que siguen estos robots se plantea el presente proyecto: la utilización del robot Nao como herramienta terapéutica en sesiones de terapia ocupacional para pacientes con la enfermedad de Alzheimer. En este contexto surge el término roboterapia, que consiste en la utilización de robots en terapias ocupacionales con pacientes.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=12cm]{img/cap1/paro}
+  \end{center}
+  \caption{Sesión terapéutica con ancianos y el robot Paro.}
+  \label{fig:paro}
+\end{figure}\
+
+\section{Estructura de este documento}
+\label{sec:estructura}
+
+En esta memoria se detallan todos los aspectos relevantes del desarrollo de esta investigación. La memoria está dividida en seis capítulos. En este primer capítulo se ha presentado el entorno en el que se realiza el estudio, se ha introducido la robótica en general y se ha definido qué es la robótica social. En el segundo capítulo se expone el problema al que nos enfrentamos y se comentan los objetivos y requisitos planteados para el proyecto. En el tercer capítulo se detalla la infraestructura software sobre la que se ha construido este proyecto y el hardware utilizado. La implementación y los detalles técnicos relativos al proyecto se encuentran en el cuarto capítulo. Con el fin de mostrar los efectos y la viabilidad de esta investigación en el quinto capítulo se ofrecen una serie de experimentos. Por último, en el sexto capítulo se presentan las conclusiones extraídas y se proponen nuevas líneas de investigación futuras.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

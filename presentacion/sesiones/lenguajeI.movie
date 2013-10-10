@@ -1,0 +1,952 @@
+begin Saludo inicial -d Buenos días a todos. Hoy tengo muchas ganas de jugar, así que espero que todos vosotros tengáis ganas de jugar conmigo. 
+mov introduccion
+music /home/nao/mp3/vocescien/Clip_sonido_02.mp3
+wait task mov
+wait task music
+wait press left
+end
+begin Explicación oficios -d En este juego tenéis que decirme como se llama la persona que se dedica a...
+breakpoint
+mov introduccion
+music /home/nao/mp3/vocescien/Clip_sonido_05.mp3
+wait task music
+wait press left
+end
+begin Oficio 1 -d La persona que hace muebles.
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_06.mp3
+wait task music
+wait press left
+end
+begin Respuesta 1 -d Carpintero.
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_07.mp3
+wait task music
+end
+begin ¡Muy bien! -d ¡Muy bien!
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+end
+begin Oficio 2 -d La persona que labra la tierra.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_09.mp3
+wait task music
+breakpoint
+wait press left
+end
+begin Respuesta 2 -d Labrador.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_10.mp3
+wait task music
+end
+begin Oficio 3 -d La persona que confecciona ropa.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_11.mp3
+wait task music
+wait press left
+end
+begin Respuesta 3 -d D1.Sastre o modista
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_12.mp3
+wait task music
+wait press left
+end
+begin Oficio 4 -d La persona que vende flores.
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_13.mp3
+wait task music
+wait press left
+end
+begin Respuesta 4 -d Florista.
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_14.mp3
+wait task music
+wait press left
+end
+begin Oficio 5 -d La persona que vende flores.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_15.mp3
+wait task music
+wait press left
+end
+begin Respuesta 5 -d Constructor o albañil.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_16.mp3
+wait task music
+wait press left
+end
+begin Oficio 6 -d La persona que escribe novelas.
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_17.mp3
+wait task music
+wait press left
+end
+begin Respuesta 6 -d Escritor o novelista.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_18.mp3
+wait task music
+wait press left
+end
+begin ¡Muy bien! -d Lo estáis haciendo muy bien.
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_19.mp3
+wait task music
+wait press left
+end
+begin Oficio 7 -d La persona que cocina.
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_20.mp3
+wait task music
+wait press left
+end
+begin Respuesta 7 -d Cocinero.
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_21.mp3
+wait task music
+wait press left
+end
+begin Oficio 8 -d La persona que toca el piano.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_22.mp3
+wait task music
+wait press left
+end
+begin Respuesta 8 -d Pianista.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_23.mp3
+wait task music
+wait press left
+end
+begin Oficio 9 -d La persona que vende carne.
+breakpoint
+mov circulos
+music /home/nao/mp3/vocescien/Clip_sonido_24.mp3
+wait task music
+wait press left
+end
+begin Respuesta 9 -d Carnicero.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_25.mp3
+wait task music
+wait press left
+end
+begin Oficio 10 -d La persona que arregla zapatos.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_26.mp3
+wait task music
+wait press left
+end
+begin Respuesta 10 -d Zapatero.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_27.mp3
+wait task music
+wait press left
+end
+begin ¡Muy bien! -d ¡Genial, muy bien!
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_28.mp3
+wait task music
+wait press left
+end
+begin Oficio 11 -d La persona que pinta cuadros.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_29.mp3
+wait task music
+wait press left
+end
+begin Respuesta 11 -d Pintor.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_30.mp3
+wait task music
+wait press left
+end
+begin Oficio 12 -d La persona que cura enfermedades.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_31.mp3
+wait task music
+wait press left
+end
+begin Respuesta 12 -d Médico.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_32.mp3
+wait task music
+wait press left
+end
+begin Oficio 13 -d La persona que corta el pelo.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_33.mp3
+wait task music
+wait press left
+end
+begin Respuesta 13 -d Peluquero.
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_34.mp3
+wait task music
+wait press left
+end
+begin Oficio 14 -d La persona que vende medicamentos.
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_35.mp3
+wait task music
+wait press left
+end
+begin Respuesta 14 -d Farmacéutico.
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_36.mp3
+wait task music
+wait press left
+end
+begin Oficio 15 -d La persona que arregla coches.
+breakpoint Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+begin Oficio -d Descripción de un oficio
+breakpoint Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_37.mp3
+wait task music
+wait press left
+begin Oficio -d Descripción de un oficio
+breakpoint Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_38.mp3
+wait task music
+music /home/nao/mp3/vocescien/Clip_sonido_39.mp3
+wait task music
+music /home/nao/mp3/vocescien/Clip_sonido_41.mp3
+wait task music
+wait press left
+begin Oficio -d Descripción de un oficio
+breakpoint Oficio -d Descripción de un oficio
+breakpoint
+mov hola
+music /home/nao/mp3/vocescien/Clip_sonido_43.mp3
+wait task mov
+wait task music
+wait press left
+begin Oficio -d Descripción de un oficio
+breakpoint Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_44.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_45.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_46.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_47.mp3
+wait task music
+wait press left
+music /home/nao/mp3/vocescien/Clip_sonido_48.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+ breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_49.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_50.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_51.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_52.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_53.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_56.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_57.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_58.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_59.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_60.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_62.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_63.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_64.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_65.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_66.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_67.mp3
+wait task music
+wait press left
+music /home/nao/mp3/vocescien/Clip_sonido_68.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_69.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_72.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_73.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_74.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_75.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_76.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_77.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_78.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_79.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_80.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_81.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_82.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_83.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_84.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov introduccion
+music /home/nao/mp3/vocescien/Clip_sonido_85.mp3
+wait task mov
+wait task music
+music /home/nao/mp3/vocescien/Clip_sonido_86.mp3
+wait music
+wait press left
+music /home/nao/mp3/vocescien/Clip_sonido_87.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_88.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_89.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_90.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_91.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_92.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_93.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_94.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_95.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_96.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_97.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_98.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_99.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_100.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_101.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_102.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_103.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_104.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_105.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_106.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_107.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_108.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_109.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_110.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_111.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_112.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_114.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_115.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_116.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_117.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_118.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_119.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_120.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_121.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_122.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_123.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov introduccion
+music /home/nao/mp3/vocescien/Clip_sonido_124.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_125.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_126.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_127.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_128.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_129.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_130.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_131.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_132.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_133.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_134.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_135.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_136.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_137.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_138.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_139.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_140.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_141.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_142.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_08.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_143.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_144.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_146.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/Clip_sonido_147.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_148.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_149.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/Clip_sonido_150.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+music /home/nao/mp3/vocescien/Clip_sonido_151.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_152.mp3
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+wait press left
+music /home/nao/mp3/vocescien/Clip_sonido_153.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov loquenoes
+music /home/nao/mp3/vocescien/Clip_sonido_154.mp3
+wait task music
+wait press left
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov adios
+music /home/nao/mp3/vocescien/Clip_sonido_155.mp3
+wait task music
+wait task mov
+end
+begin Oficio -d Descripción de un oficio
+breakpoint
+mov adios
+music /home/nao/mp3/adiosconelcorazon.mp3
+wait task mov
+mov flamenco
+wait task mov
+mov adios
+wait task music
+end
+begin Oficio -d Descripción de un oficio
+breakpoint

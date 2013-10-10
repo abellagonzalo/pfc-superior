@@ -1,0 +1,30 @@
+mov hola
+music /home/nao/mp3/vocescien/proyecto1.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/proyecto2.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov introduccion
+music /home/nao/mp3/vocescien/proyecto3.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov cabezabrazo
+music /home/nao/mp3/vocescien/proyecto4.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov adios
+music /home/nao/mp3/vocescien/proyecto5.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint

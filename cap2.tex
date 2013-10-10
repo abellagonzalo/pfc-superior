@@ -1,0 +1,111 @@
+\chapter{Objetivos y Metodología}
+\label{cap:objetivos}
+
+Una vez presentado el contexto en el que se sitúa la investigación, en este capítulo se fijan los objetivos y requisitos del proyecto. Para ello primero se describirá el problema al que nos enfrentamos, que es la introducción de un robot en terapias ocupacionales para enfermos de Alzheimer, y luego se fijarán los objetivos y requisitos en base al problema. Por último, explicaremos la metodología seguida, el plan de trabajo que se ha llevado a cabo y el calendario de sesiones que se ha seguido.
+
+\section{Descripción del problema}
+\label{sec:descripcionproblema}
+
+La enfermedad de Alzheimer es un tipo de demencia senil que, como todas ellas, afecta a las funciones del cerebro. Se caracteriza por una pérdida progresiva de la memoria, de la capacidad de razonar y de la conducta. La enfermedad de Alzheimer es la forma más común de demencia y afecta, sobretodo, a las personas mayores de 65 años. Aproximadamente un 12\% de la población mayor de 65 años tiene esta enfermedad. El número de enfermos de Alzheimer ha crecido mucho en los últimos años debido, principalmente, por el aumento de la esperanza de vida, que actualmente en España está en 81,5 años.\\
+
+Las causas de esta enfermedad siguen siendo desconocidas, pero lo que sí se conocen son los factores de riesgo. Como acabamos de comentar la edad es un factor importante junto a la genética y los antecedentes familiares. Las personas con síndrome de Down también tienen un riesgo muy alto de padecer esta enfermedad. La enfermedad de Alzheimer parece ser más común en mujeres que en hombres, de hecho, casi dos tercios de las personas que sufren esta enfermedad son mujeres.\\
+
+Desgraciadamente en la actualidad, no existe cura para esta enfermedad. En su lugar los tratamientos se enfocan en aliviar y retrasar la progresión de los síntomas, como la pérdida de memoria. Además del tratamiento farmacológico correspondiente, se ha comprobado que la participación en terapias ocupacionales por parte de los pacientes es algo muy beneficioso. Estas terapias están orientadas al desarrollo de diferentes actividades en las que se les incita a realizar ciertas actividades cognitivas y físicas.\\
+
+Hace tres años le surgió la oportunidad al grupo de robótica de la Universidad Rey Juan Carlos de participar en estas terapias incluyendo al robot como herramienta terapéutica. A estas terapias se les ha dado el nombre de Roboterapia. El objetivo de este proyecto, como veremos a continuación, gira en torno a este tema.\\
+
+Al introducir un robot en terapias ocupacionales de enfermos de Alzheimer surgen una serie de problemas que intentaremos resolver en el desarrollo del proyecto. La interacción con un robot no siempre es fácil ni intuitiva, por lo que el conjunto de herramientas debe ser fácil de usar. Las sesiones se realizan en base a unos guiones que se elaboran previamente, así que las herramientas deben elaborarse en torno a la ejecución de éstos porque son el pilar fundamental de una sesión. A continuación, se presentan los objetivos que se han propuesto para este proyecto. 
+
+\section{Objetivo del proyecto}
+\label{sec:objetivoproyecto}
+
+El objetivo principal del proyecto es el de desarrollar un conjunto de herramientas que ayude a los terapeutas a usar un robot durante la realización de terapias ocupacionales con enfermos de Alzheimer, es decir, realizar sesiones de roboterapia. Las herramientas deben ser lo suficientemente simples e intuitivas como para permitir a los terapeutas usar el robot sin dejar de prestar atención a los enfermos. Además de estas herramientas, el sistema puede emplear cualquier método de control externo que facilite dicha tarea.\\
+
+Este objetivo principal se ha dividido en varios subobjetivos para simplificar el desarrollo del proyecto y asegurarnos que se llevan a cabo correctamente:
+
+\begin{enumerate}
+\item \textbf{Terapias.} La herramientas serán capaces de reproducir varias terapias desarrolladas por los investigadores encargados de la investigación en la Fundación CIEN. Las acciones interesantes para el reproductor de terapias son cargar terapias, ejecutar la acción siguiente y reproducir la acción que se quiera.
+
+\item \textbf{Herramientas de teleoperación.} Se debe poder teleoperar al robot para, en caso necesario, controlarlo y que ejecute las acciones que el terapeuta crea convenientes. Las acciones que nos interesan son desplazar al robot, controlar la cabeza, reproducir sonidos y efectuar movimientos.
+
+\item \textbf{Herramientas de control auxiliares.} Se incorporará un método de control externo para facilitar el manejo del robot a los terapeutas encargados de hacer la terapia y permitir que sean autónomos. El dispositivo debe ser inalámbrico y fácil de usar.
+
+\item \textbf{Integración.} Todo ello debe ir integrado en una sola aplicación con un interfaz gráfico simple. Se tendrá en cuenta que la aplicación será usada por profesionales de la medicina, no informáticos.
+\end{enumerate}
+
+Durante todo el proceso de desarrollo habrá una realimentación continua por parte de los terapeutas y los médicos de la Fundación. El software será probado todas las semanas en las sesiones de Roboterapia programadas por la Fundación CIEN.\\
+
+\section{Requisitos}
+\label{sec:requisitos}
+
+El desarrollo de este proyecto, siguiendo la línea marcada por los objetivos, deberá ajustarse y cumplir los siguientes requisitos:
+
+\begin{enumerate}
+\item El lenguaje de programación para la interfaz gráfica será Java.
+\item Las herramientas correrán sobre un sistema GNU/Linux. La elección de la distribución es libre.
+\item La interfaz gráfica deberá ser simple e intuitiva. Se debe tener en cuenta que los usuarios de las herramientas probablemente no dispongan de conocimientos informáticos avanzados.
+\item El robot se ejecutará bajo una versión de BICA, que es una arquitectura software de componentes iterativos basada en comportamiento, creada en el grupo de Robótica de la Universidad y que permite programar el robot Nao eficazmente. Este software se describe más adelante, en la sección \ref{sec:bica}.
+\item Se incorporará un dispositivo externo que facilite el manejo del robot y aporte autonomía al terapeuta.
+\end{enumerate}
+
+\section{Metodología y planificación}
+\label{sec:metodologiaplanificacion}
+
+La metodología escogida para la realización de este proyecto es el \textit{modelo de prototipos}. Se trata de un modelo de desarrollo evolutivo. Este tipo de modelos se caracteriza por ser un modelo iterativo en el que los requisitos del cliente no son completamente conocidos al inicio del proyecto. El modelo de prototipos, como su nombre indica, se basa en la construcción de prototipos. Un prototipo se puede definir como una versión preliminar de un sistema con fines demostrativos o de evaluación. La idea principal de este modelo es desarrollar una implementación inicial (prototipo), someterla a la evaluación del usuario y refinarla por medio de diferentes versiones. Los prototipos deben ser construidos en poco tiempo y no deben consumir demasiados recursos.\\
+
+Como se puede ver en la figura \ref{fig:modeloprototipos}, se parte de una breve descripción de lo que quiere el cliente. Las actividades de especificación, desarrollo y validación se realizan conjuntamente con una retroalimentación rápida entre ellas. De cada una de las revisiones se obtiene un prototipo que es evaluado por el cliente o el usuario y comienza de nuevo el proceso.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=12cm]{img/cap2/modeloprototipos}
+  \end{center}
+  \caption{Modelo de desarrollo de prototipos.}
+  \label{fig:modeloprototipos}
+\end{figure}
+
+El enfoque de prototipos suele ser más efectivo que otros más estáticos, como el modelo en cascada, porque satisface las necesidades inmediatas del cliente. Para sistemas pequeños y de tamaño medio, se ha comprobado que los enfoques evolutivos de desarrollo son los que mejores resultados devuelven. Pero no todo son ventajas, el modelo de prototipos tiene algunos inconvenientes. Al crear los prototipos de forma rápida, se suelen desatender aspectos importantes del software como la calidad, el mantenimiento a largo plazo y la documentación: Además,los continuos cambios en los requisitos para cada prototipo contribuyen a que el sistema tenga una estructura deficiente.\\
+
+Pese a los inconvenientes que acabamos de mencionar, creemos que este modelo de desarrollo es el que más se ajusta a nuestras necesidades. El proyecto que se presenta en esta memoria es un proyecto de investigación donde los requisitos suelen cambiar bastante. Este modelo nos permite ajustarnos a estos cambios y desarrollar con rapidez un nuevo prototipo. Es conveniente recordar que la realización de las terapias se efectuará al mismo tiempo que el desarrollo del proyecto. Además, se mantendrán reuniones semanales con el tutor del proyecto para comentar los resultados obtenidos y planificar el siguiente prototipo.
+
+\subsection{Plan de trabajo}
+\label{subsec:plantrabajo}
+
+En este apartado se explica el plan de trabajo seguido. Se ha dividido en distintas fases para simplificar el trabajo. Como resultado final de cada fase se obtiene un resultado, ya sea un prototipo o conocimiento adquirido.\\
+
+Según se define en la norma escrita por el IEEE sobre procesos del ciclo de vida del software, \cite{iso12207}: \textit{Un prototipo es una versión limitada del producto que permite a las partes responsables de su creación probarlo en situaciones reales y explorar su uso}. Como hemos comentado previamente en el capítulo, hemos seguido la metodología de desarrollo de prototipos. Como resultado de cada fase se obtiene un prototipo que es probado y evaluado para poder mejorarlo en la siguiente iteración. Para simplificar más algunas iteraciones complejas como la primera, hemos dividido este esfuerzo en varias iteraciones, por lo que el resultado de estas no siempre es un prototipo, también puede ser adquisición de conocimiento.
+
+\begin{itemize}
+\item \textbf{Fase 1.} Familiarización con el entorno y primer prototipo. Esta primera fase requiere bastante esfuerzo por lo que está dividida a su vez en varias iteraciones. Ésta consiste, \textit{grosso modo}, en crear el primer prototipo pero para ello hay que familiarizarse con el entorno.
+  \begin{itemize}
+  \item \textbf{Fase 1.1.} Familiarización con el Software. En esta primera subiteración se realizará un primer acercamiento a BICA, que es el software creado en el grupo de Robótica para el robot. Los tres elementos software que estudiaremos son \textit{Player}, \textit{Jmanager} y el motor de comunicaciones \textit{ICE}.
+  \item \textbf{Fase 1.2.} Familiarización con el Hardware. En esta segunda subiteración nos centraremos en el robot, tanto en su configuración como en la comunicación con él a través de \textit{ICE}.
+  \item \textbf{Fase 1.3.} Asistencia a una sesión de roboterapia acompañado. Se asistirá a una primera sesión de terapia acompañado por el tutor del proyecto. El objetivo de esta subiteración es conocer el entorno en el que se desarrollan las terapias para comprender mejor el problema.
+  \item \textbf{Fase 1.4.} Elaboración del primer prototipo. Una vez adquirido el conocimiento mínimo de los aspectos básicos del problema, se puede crear el primer prototipo. Una vez elaborado, el software se  probará en una sesión real de roboterapia y se evaluarán los resultados para una posterior mejora.
+  \end{itemize}
+\item \textbf{Fase 2.} Esta fase, aunque se haya representado como una sola, está compuesta por varias. Consiste en, a partir de los resultados obtenidos en la evaluación del prototipo anterior, rediseñar el componente software para adaptarlo a los cambios sugeridos y añadir las nuevas funcionalidades. Este nuevo prototipo será probado en una nueva sesión de roboterapia y posteriormente será evaluado. Esta fase se repetirá durante todo el proyecto. 
+\item \textbf{Fase 3.} La última fase se ha separado por ser un poco diferente de las iteraciones de la fase 2. Una vez finalizadas las terapias se creará una pequeña documentación del último prototipo para poder cerrar la investigación. Este último punto es importante para retomar la investigación en un futuro.
+\end{itemize}
+
+\begin{table}[htbp]
+\begin{tabular}{|l||c|c|c|c|c|c|c|} 
+\hline
+Mes/Día & Lunes & Martes & Miércoles & Jueves & Viernes & Sábado & Domingo \\ \hline \hline
+Junio & & & \cellcolor[gray]{0.8} 1.1 & & & & \\ \hline
+Julio & & & \cellcolor[gray]{0.8} 1.1 & & & & \\ \hline
+Agosto & & & \cellcolor[gray]{0.8} 2.2 & \cellcolor[gray]{0.8} 1.5 & & & \\ \hline
+Septiembre & & \cellcolor[gray]{0.8} CD & \cellcolor[gray]{0.8} 2.2 & \cellcolor[gray]{0.8} 1.5 & & & \\ \hline
+Octubre & & \cellcolor[gray]{0.8} CD & \cellcolor[gray]{0.8} 2.2 & & & & \\ \hline
+Noviembre & & \cellcolor[gray]{0.8} CD & & & & & \\ \hline
+\end{tabular}
+\caption{Calendario de las sesiones que se realizarán para la investigación.}
+\label{tab:calendario}
+\end{table}
+
+Las terapias se realizarán entre los meses de junio y noviembre, ambos inclusive. La frecuencia de las terapias y la unidad en la que se hará está marcada por los investigadores de la Fundación CIEN, reflejado en el calendario de la tabla \ref{tab:calendario}. En la residencia, los pacientes de Alzheimer están agrupados en unidades según el grado de desarrollo de la enfermedad. En la unidad 1.1 se encuentran los enfermos leves, en la 1.5 los enfermos moderados y en la 2.2 los más graves. CD corresponde a ''Centro de día''. El Centro de día está compuesto por ancianos que no duermen en la residencia. La mayoría de ellos se encuentra en estadíos iniciales de la enfermedad de Alzheimer.\\
+
+Cada día de terapia se harán dos sesiones en el mismo grupo, una de terapia ocupacional y otra de fisioterapia. Todas las sesiones serán grabadas con cámara de vídeo para su posterior evaluación. Estas grabaciones no influyen en nuestro proyecto, solamente se usarán para evaluaciones médicas de las terapias.\\
+
+
+
+
+

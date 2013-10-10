@@ -1,0 +1,306 @@
+\chapter{Entorno y plataforma de desarrollo}
+\label{cap:entorno}
+
+En este capítulo se describen los elementos hardware y software utilizados en el proyecto. En la figura \ref{fig:bloques-app} se puede ver un esquema con las conexiones entre los distintos elementos que componen el sistema.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=15cm]{img/cap3/bloques-app}
+  \end{center}
+  \caption{Esquema de la aplicación.}
+  \label{fig:bloques-app}
+\end{figure}\
+
+En el lado derecho de la figura tenemos los componentes software que se ejecutan en el robot. La capa inferior representa al robot con sus actuadores y sensores. Sobre ésta se encuentra \textit{NaoQi}\footnote{http://www.aldebaran-robotics.com/en/Discover-NAO/Key-Features/NAOqi.html}, que es un Framework que facilita el acceso a los sensores y actuadores del robot. Por encima de \textit{NaoQi} está BICA. BICA es una arquitectura software, desarrollada por el grupo de Robótica de la Universidad, que permite definir el comportamiento del robot mediante la ejecución de componentes software. Los componentes son las piezas software que contienen la funcionalidad real del robot. Para poder modular su ejecución desde una plataforma exterior se utilizan las interfaces proporcionadas por ICE, que es un motor de comunicaciones de Internet.\\
+
+En el lado izquierdo de la figura se encuentran los componentes software que permiten manejar al robot. La aplicación que se ha desarrollado en este proyecto se ejecuta sobre un PC con un sistema GNU/Linux instalado en él. Para modular y monitorizar los distintos componentes de BICA se utilizan las interfaces ICE proporcionadas por BICA. La conexión con el Wiimote se realiza a través de la biblioteca \textit{Motej}\footnote{http://motej.sourceforge.net}, biblioteca de software libre disponible en la red. La conexión entre el robot y la aplicación es WiFi, mientras que la conexión entre el Wiimote y la aplicación es bluetooth.\\
+
+A continuación se exponen en profundidad estos elementos y, en particular, aquellos relevantes en este proyecto.
+
+\section{Robot Nao}
+\label{sec:robotnao}
+
+Nao es un robot humanoide de 58 cm de altura (Figura \ref{fig:gradoslibertad}). Lo desarrolla la empresa francesa \textit{Aldebaran Robotics}\footnote{http://www.aldebaran-robotics.com/}. El proyecto de desarrollo del Nao nace en 2004. Al poco tiempo, en 2007, reemplaza al robot Aibo, creado por Sony, como el robot usado en la competición de la \textit{RoboCup Standard Platform League (SPL)}. En 2011 Aldebaran anuncia que van a lanzar el código fuente del controlador del Nao como software libre. Por el momento este robot es utilizado mayoritariamente en el ámbito académico, pero fuera de éste tiene muchos usos aún por descubrir. Las principales características del robot Nao son:
+
+\begin{packed_item}
+\item Gran cantidad de movimientos. El \textit{Nao Robocup Edition}, que es la versión utilizada para la Robocup y la que se utiliza en este proyecto, cuenta con 21 grados de libertad.
+\item Detectores de presión en pies y manos, conocidos como FSR, \textit{Force Sensitive Resistors}. Este dispositivo tiene la capacidad de disminuir su resistencia cuando aumenta la fuerza aplicada sobre él. Suele utilizarse para el control de dispositivos electrónicos con el tacto.
+\item Dos cámaras situadas en la cabeza con distintas zonas de visión. Una de ellas está situada en la frente del robot y apunta hacia el frente. La otra cámara esta situada en la boca del robot y tiene cierta inclinación hacia abajo. Los ángulos de visión de las cámaras no se solapan, en la figura \ref{fig:zonasvision} se puede ver hacia donde apunta cada cámara. Ambas tienen una resolución HD, 640x480 píxeles.
+\item Cuatro sensores de ultrasonido colocados en el pecho del robot.
+\item Un sensor inercial que mide la aceleración y la velocidad angular. Este sensor es muy útil en caso de caídas para detectarlas y actuar en consecuencia.
+\item Interfaces de red Ethernet y WiFi que aportan conectividad al robot.
+\item LEDs con distintos colores repartidos por el cuerpo del robot. Tiene uno en el botón de encendido y apagado del pecho del robot, un par en los ojos y varios en las orejas y pies.
+\item Cuatro micrófonos colocados en la parte frontal, la parte posterior, al lado derecho y al lado izquierdo del robot.
+\item Dos altavoces Hi-Fi en estéreo para reproducir sonidos colocados en la cabeza del robot.
+\end{packed_item}
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[Sensores y actuadores del robot.]{
+    \label{fig:gradoslibertad}
+    \includegraphics[width=9cm]{img/cap3/gradoslibertad}
+  }
+  \subfloat[Zonas de visión de cada una de las cámaras.]{
+    \label{fig:zonasvision}
+    \includegraphics[width=6cm]{img/cap3/zonasvision}
+  }
+  \caption{El robot Nao.}
+  \label{fig:robotnao}
+\end{figure}
+
+El robot dispone de un procesador x86 AMD Geode 500MHz y usa como sistema operativo Linux. Se alimenta de una batería recargable que le permite funcionar durante aproximadamente 45 minutos o durante quince minutos caminando sin parar. Este tiempo es suficiente ya que las sesiones de Roboterapia duran entre 30 y 40 minutos.\\
+
+La característica más importante del robot y por la que fue elegido es por su aspecto físico. El robot tuvo que pasar una serie de pruebas de aceptación por parte de los pacientes antes de poder empezar a realizar las terapias con éste. Gracias al pequeño tamaño y el aspecto amigable que tiene, el robot no representa una amenaza ni produce rechazo, por lo que pasó las pruebas con éxito y se pudieron comenzar las terapias.
+
+\section{NaoQi}
+\label{sec:naoqi}
+
+\textit{NaoQi} es un Framework, creado por Aldebaran Robotics, que permite desarrollar aplicaciones en C++ y Python en el Nao. Facilita el acceso a los sensores y actuadores del robot. Las aplicaciones creadas pueden ser ejecutadas directamente por el robot o remotamente en un ordenador.\\
+
+Los ejecutables creados con este Framework se llaman \textit{broker}. Los \textit{broker} se ejecutan de forma independiente y se encuentran escuchando en una dirección IP y un puerto, por lo que pueden ser ejecutados en el propio robot, usando un compilador cruzado proporcionado por el Framework, o remotamente desde un ordenador. Un \textit{broker} esta formado por una serie de módulos que ofrecen distintas funcionalidades. Las funciones de estos módulos pueden ser llamadas desde otros módulos o incluso desde otros \textit{broker}.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap3/broker-naoqi}
+  \end{center}
+  \caption{Arquitectura de NaoQi modulada por medio de \textit{Brokers}.}
+  \label{fig:broker-naoqi}
+\end{figure}\
+
+En la figura \ref{fig:broker-naoqi} se puede ver un esquema de la arquitectura de \textit{NaoQi} modulada por medio de los \textit{broker}. El \textit{broker} más importante es el \textit{MainBroker} porque nos da acceso a los sensores y actuadores del robot. Cuando se desarrolla una aplicación para el robot con este Framework, se puede ejecutar a través de un \textit{broker} propio o como un módulo del \textit{MainBroker}; BICA se ejecuta de esta última manera. \textit{NaoQi} se utiliza para acceder a los sensores y actuadores de una manera más sencilla.\\
+
+Los \textit{brokers} se organizan internamente en módulos. Cada uno de estos módulos aporta una funcionalidad concreta o permite acceder a sensores o actuadores del robot. Por ejemplo, \texttt{ALMotion} proporciona métodos que facilitan hacer que el robot se mueva; \texttt{ALAudioDevice} contiene otros módulos de \textit{NaoQi} que nos dan acceso a las entradas y salidas de audio; \texttt{ALVideoDevice} se encarga de proporcionar imágenes de las cámaras, y \texttt{ALSensors} es responsable de lanzar los eventos correspondientes cuando se pulsa un botón o se tocan las zonas táctiles de la cabeza o las manos.
+
+\section{BICA}
+\label{sec:bica}
+
+BICA\footnote{http://www.robotica-urjc.es/index.php/Robocup}, \textit{Behavior-based Iterative Component Architecture}, es un software desarrollado en el grupo de Robótica de la Universidad Rey Juan Carlos, \cite{BICA2010}. Se trata de una plataforma de desarrollo de software para el robot Nao. En el bloque situado a la derecha de la figura \ref{fig:bloques-bica} se puede ver la arquitectura de BICA dividida en capas.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=7cm]{img/cap3/bloques-bica}
+  \end{center}
+  \caption{Arquitectura de BICA dividido en capas.}
+  \label{fig:bloques-bica}
+\end{figure}\
+
+La unidad básica en la arquitectura de BICA es el \textit{componente}, representado en la figura \ref{fig:componente-bica}. La funcionalidad de los \textit{componentes} puede ser implementada mediante una máquina de estados o pueden ser controladores reactivos, es decir, que ejecutan al momento la acción requerida. Los \textit{componentes} pueden activarse o desactivarse. Un \textit{componente} activo ejecuta una tarea determinada de manera iterativa y con una frecuencia previamente fijada. Los \textit{componentes} que están activos iteran y consumen recursos. Los \textit{componentes} tienen una serie de métodos para modularlos y devuelven los resultados obtenidos.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap3/componente-bica}
+  \end{center}
+  \caption{Esquema de las entradas y salidas de un componente de BICA.}
+  \label{fig:componente-bica}
+\end{figure}
+
+Para realizar tareas más complejas los \textit{componentes} pueden comunicarse entre sí. La arquitectura de BICA tiene una estructura jerárquica, tal y como se muestra en la figura \ref{fig:componentes-bica}. Cuando se activa el \textit{Componente A}, éste activa los \textit{componentes D} y \textit{E}. A su vez, el componente \textit{D} activa los \textit{componentes G} y \textit{H}, y el \textit{componente E} activa los \textit{componentes H}, \textit{I} y \textit{J}. Un \textit{componente} puede ser activado por varios \textit{componentes}. Aunque sea llamado repetidas veces, éste se ejecutará a la frecuencia mínima que tenga configurada para evitar ciclos innecesarios y se ahorren recursos. Los \textit{componentes} de ''bajo nivel'', como los \textit{componentes G}, \textit{H}, \textit{I} y \textit{J}, se comunican directamente con el robot u obtienen la información mediante llamadas de \textit{NaoQi}.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap3/componentes-bica}
+  \end{center}
+  \caption{Jerarquía de componentes de BICA.}
+  \label{fig:componentes-bica}
+\end{figure}
+
+A continuación se muestra un ejemplo en pseudocódigo muy básico del funcionamiento de los \textit{componentes}. Los \textit{componentes} tienen un par de métodos indispensables: \texttt{init()} y \texttt{step()}. Desde el método \texttt{init()} se inicializan los recursos necesarios ejecutar el \textit{componente}. El método \texttt{step()} es el que activa el \textit{componente} y contiene toda su funcionalidad. Como el \textit{componente} se activa solamente cuando se llama a este método, no es necesario ningún otro método para detener su ejecución. Todos los \textit{componentes} disponen de un método privado llamado \texttt{isTime2Run()} que nos modula la frecuencia a la que se ejecuta el \textit{componente}. Si aún no tiene que ejecutarse el \textit{componente}, el método devuelve \texttt{false} y no se ejecuta ninguna instrucción del \textit{componente}.
+
+\begin{lstlisting}[style=C]
+void step() {
+  // Ejecución en cascada de los componentes de los que se
+  // obtienen información.
+  cp1->step();
+  cp2->step();
+
+  if (isTime2Run()) {
+    // Recoger datos de los componentes perceptivos.
+
+    // Iteración genuina
+
+    // Poner a disposición del resto de componentes los datos
+    // calculados y/o se modulan los componentes actuadores.
+  }
+
+  // Ejecución en cascada de los componentes que se han
+  // modulado o requieran ser ejecutados por su actuación.
+  ca1->step();
+  ca2->step();
+}
+\end{lstlisting}
+
+Al inicio del método \texttt{step()} se llama a los \textit{componentes} perceptivos, son aquellos que devuelven datos, de los que depende el \textit{componente}. Si es el momento de que se ejecute el \textit{componente}, el método \texttt{isTime2Run()} devuelve \textit{true} y se ejecutan las instrucciones dentro de la estructura \textit{if}. Básicamente, lo que se hace en esta estructura es procesar los datos devueltos por los \textit{componentes} perceptivos y generar nuevos datos. En caso de que el \textit{componente} genere una respuesta, se modulan los \textit{componentes} actuadores, aquellos que generan una respuesta en el robot o procesan los datos que acabamos de crear. Por último, se llama al \texttt{step()} de éstos para que efectúen las acciones requeridas que acabamos de modular.\\
+
+BICA está desarrollado en C++ y consiste en una arquitectura iterativa, formada por \textit{componentes} y basada en comportamientos. Proporciona un entorno de programación monohilo. Gracias a que se ejecuta en un sólo hilo nos evita las condiciones de carrera, un error muy frecuente y difícil de detectar en la programación concurrente.\\
+
+Se ha escogido esta plataforma software por ser robusta y estar bastante probada. Ya ha sido utilizada en varios proyectos y es la plataforma utilizada en la RoboCup por el equipo de la universidad. Además, dispone de varios \textit{componentes} que se pueden reutilizar para nuestro proyecto, de los cuales hablaremos en la sección \ref{sec:componentes}.\\
+
+Las comunicaciones con agentes externos se realizan a través del motor de comunicaciones de Internet, ICE, \textit{Internet Communications Engine}. Se trata de un \textit{middleware} de computación distribuida, orientado a objetos, multiplataforma y es desarrollado por la empresa \textit{ZeroC}\footnote{http://www.zeroc.com/}. Este \textit{middleware} proporciona una solución simple en el ámbito de las comunicaciones entre aplicaciones distribuidas en distintos servidores.\\
+
+ICE dispone de una versión para sistemas embebidos, \textit{Ice-E}. Esta versión es un motor de comunicaciones más compacto diseñado para ejecutarse en entornos de recursos limitados como teléfonos inteligentes o PDAs, por poner un par de ejemplos. Esta es la versión utilizada en el robot, ya que los recursos son bastante limitados y se necesita que el software corra los más rápidamente posible. Gracias a ICE, BICA puede comunicarse con \textit{JManager} o con otros robots que usen BICA.\\
+
+\section{Componentes BICA}
+\label{sec:componentes}
+
+En esta sección se habla de los distintos \textit{componentes} de BICA que hemos utilizado en nuestra aplicación, estos son: \textbf{Music}, \textbf{Body}, \textbf{Head} y \textbf{Movie}. La mayoría de ellos están formados por una máquina de estados. Los diagramas de máquina de estados que se muestran en algunos componentes están sacados de la herramienta visual de diseño de componentes BICA: VICODE, del cual se habla en la sección \ref{sec:jmanager}.\\ 
+
+Los \textit{componentes} pueden definirse como máquinas de estado. Los diagramas de la máquina de estados de los \textit{componentes} se interpretan de la siguiente manera. El estado inicial está representado con un círculo rojo. Todos los \textit{componentes} se inician en este estado cuando se activan. El resto de estados se representan mediante círculos amarillos. Las transiciones entre un estado y otro se representan con un círculo de menor tamaño y azul. Las flechas que entran y salen de este pequeño círculo indican el sentido de la transición entre dos estados. Cuando en el estado de un \textit{componente} hay interacción con otro \textit{componente}, este otro \textit{componente} se representa mediante un círculo azul clarito. Con estas indicaciones es muy fácil comprender las máquinas de estado de cada uno de los \textit{componentes}.
+
+\subsection{Componente Music}
+\label{subsec:music}
+
+Este \textit{componente} se encarga de reproducir ficheros de audio. Es modulado por el componente \textbf{Movie} y también es controlado remotamente desde nuestra aplicación. Este componente es capaz de reproducir ficheros en formato MP3 y formato WAV .\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap3/estados-music}
+  \end{center}
+  \caption{Máquina de estados del componente \textbf{Music}.}
+  \label{fig:estados-music}
+\end{figure}
+
+La máquina de estados del componente \textbf{Music} la tenemos en la figura \ref{fig:estados-music}. \textit{Initial} es el estado inicial del que se parte cuando se activa el componente. Cuando se carga un fichero, se pasa al estado \textit{Ready}. En este estado el componente está preparado para empezar a reproducir la música. Cuando se empieza a reproducir el sonido pasamos al estado \textit{Playing}. Por último, cuando finaliza el fichero de audio, se pasa al estado de \textit{Stop} y de este al estado \textit{Initial}, pero si por el contrario el fichero se para manualmente pasamos al estado \textit{Initial}.\\
+
+\subsection{Componente Body}
+\label{subsec:body}
+
+El componente \textbf{Body} se encarga de realizar los movimientos del robot y de caminar. Es modulado por el componente \textbf{Movie} y también es controlado remotamente desde nuestra aplicación. Los movimientos son fijos y previamente se han creado con una herramienta del JManager. Sólo puede ejecutarse un movimiento a la vez. Hay que tener especial cuidado cuando se ejecuta un movimiento al mismo tiempo que se camina, ya que el movimiento de los brazos puede hacer que el robot pierda el equilibrio y se caiga.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=14cm]{img/cap3/estados-body}
+  \end{center}
+  \caption{Máquina de estados del componente \textbf{Body}.}
+  \label{fig:estados-body}
+\end{figure}
+
+La máquina de estados de este componente está representada en la figura \ref{fig:estados-body}. Cuando se activa el componente, éste se inicia en el estado \textit{Initial}. En este estado no se hace nada y se avanza directamente al estado \textit{Stopped}. Desde este estado se puede avanzar a los estados \textit{Walking} y \textit{Moving}, dependiendo de cómo se module. El estado \textit{Walking} se activa cuando el robot comienza a caminar y el estado \textit{Moving}, cuando el robot realiza un movimiento de los que dispone.\\ 
+
+En los estados \textit{Walking} y \textit{Moving} se obliga a pasar por el estado \textit{Stopped}, precisamente para evitar el problema del que hemos hablado al principio de este apartado: evitar caminar y realizar un movimiento al mismo tiempo.
+
+\subsection{Componente Head}
+\label{subsec:head}
+
+Este componente es el responsable de mover la cabeza del robot. Tiene dos grados de libertad: pan y tilt. El componente \textbf{Head} contiene métodos tanto para mover el cuello mecánico que controla la cabeza como para leer el estado de éste. Este componente es teleoperado desde  nuestra aplicación.\\
+
+El componente \textbf{Head} no está formado con una máquina de estados. Es un componente reactivo, es decir, que responde instantáneamente a las órdenes que recibe moviendo la cabeza.
+
+\subsection{Componente Movie}
+\label{subsec:movie}
+
+El componente \textbf{Movie} fue desarrollado en un Proyecto fin de carrera del grupo de Robótica de la universidad, \cite{Benitez2010}. Este componente es el responsable de procesar las sesiones que se siguen en las terapias. Se encarga de recoger información a partir de un fichero de guiones y activar la ejecución.\\
+
+\begin{figure} [t]
+  \begin{center}
+    \includegraphics[width=15cm]{img/cap3/estados-movie}
+  \end{center}
+  \caption{Máquina de estados del componente \textbf{Movie}.}
+  \label{fig:estados-movie}
+\end{figure}
+
+Como la gran mayoría de los componentes de BICA, \textbf{Movie} está formado por una máquina de estados finita (Figura \ref{fig:estados-movie}). Esta máquina de estados está compuesta por cuatro estados. \textit{Initial} es el estado inicial del que se parte cuando se activa el componente. Se pasa al estado \textit{SetFile} cuando se carga una sesión. En el estado \textit{Running} se procesa el fichero y se ejecutan los comandos correspondientes. Cuando se encuentra un comando llamado \texttt{wait}, la máquina de estados avanza al estado \textit{Waiting}. Desde este estado se vuelve al estado \textit{Running} cuando se cumple la condición del comando \texttt{wait}.\\
+
+Los componentes con los que interactúa el componente \textbf{Movie} son \textbf{Body}, \textbf{Music}, \textbf{TextSpeech} y \textbf{LedsControl}. De los componentes \textbf{Music} y \textbf{Body} ya hemos hablado en las subsecciones \ref{subsec:music} y \ref{subsec:body} respectivamente. El componente \textbf{TextSpeech} reproduce textos con voz. El componente \textbf{LedsControl} permite controlar los distintos LEDs de los que dispone el robot. Estos dos componentes son modulados únicamente desde el componente \textbf{Movie}.\\
+
+Los guiones de las terapias están escritos en un pseudo-lenguaje creado específicamente para esta tarea. El lenguaje está compuesto por comandos y los guiones, a su vez, están compuestos por una sucesión de comandos escritos, uno por cada línea del fichero. Éstos se ejecutarán una a una en el orden en que se encuentran en el fichero. A continuación ponemos un pequeño fragmento de una sesión que se utiliza actualmente en las terapias y se explica cada una de las líneas.
+
+\begin{lstlisting}[style=sh] 
+mov introduccion
+music /home/nao/mp3/vocescien/Clip_sonido_02.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+\end{lstlisting}
+
+\begin{packed_enum}
+\item \textbf{mov introduccion - } El robot realiza el movimiento llamado ''introduccion''.
+\item \textbf{music /home/nao/mp3/vocescien/Clip\_sonido\_02.mp3 - } Se reproduce el fichero de audio que se encuentra en la ruta \textit{/home/nao/mp3/vocescien/Clip\_sonido\_02.mp3}.
+\item \textbf{wait task mov - } El robot espera a que termine el movimiento que esté en ejecución, en este caso es el movimiento ''introduccion'', para seguir con la sesión.
+\item \textbf{wait task music - } El robot espera a que termine de reproducir el fichero de audio que esté reproduciéndose, en este caso \textit{/home/nao/mp3/vocescien/Clip\_sonido\_02.mp3}, para ejecutar la siguiente instrucción de la sesión.
+\item \textbf{wait press left - } El robot espera a que se presione el botón del pie izquierdo.
+\item \textbf{breakpoint - } Se marca un punto de ruptura para poder volver a él cuando el usuario desee.
+\end{packed_enum}
+
+\section{JManager}
+\label{sec:jmanager}
+
+JManager es una aplicación de escritorio desarrollada en Java que contiene herramientas para la monitorización, configuración y depuración del robot. La figura \ref{fig:pantallazos-jmanager} está compuesta por varias capturas de pantalla de la esta aplicación.\\
+
+\begin{figure}[hbtp]
+  \centering
+  \begin{tabular}{cc}
+  \subfloat[Pantalla de conexión.]{
+    \label{fig:pantallazo-jmanager}
+    \includegraphics[scale=0.25]{img/cap3/Pantallazo-jmanager}
+  } &
+    \subfloat[Herramienta de depuración de Vista relativa.]{
+    \label{fig:pantallazo-RelativeView}
+    \includegraphics[scale=0.25]{img/cap3/Pantallazo-RelativeView}
+  } \\
+  \subfloat[Pantalla de activación y desactivación de componentes.]{
+    \label{fig:pantallazo-jmanager-1}
+    \includegraphics[scale=0.25]{img/cap3/Pantallazo-jmanager-1}
+  } &
+  \subfloat[Herramienta de depuración de Campo de fútbol en 3D y configuración del GroundTruth.]{
+    \label{fig:pantallazo-3DFieldView}
+    \includegraphics[scale=0.25]{img/cap3/Pantallazo-3DFieldView}
+  }
+  \end{tabular}
+  \caption{Distintas capturas de JManager.}
+  \label{fig:pantallazos-jmanager}
+\end{figure}
+
+La aplicación JManager está organizada en varias pestañas, donde cada una proporciona una funcionalidad distinta. Una de estas funcionalidades es la activación y desactivación de los componentes disponibles en el robot (Figura \ref{fig:pantallazo-jmanager-1}). De igual manera se puede activar el modo de depuración y la interfaz gráfica propia de cada componente para modularlo y depurarlo. Las figuras \ref{fig:pantallazo-RelativeView} y \ref{fig:pantallazo-3DFieldView} son dos herramientas de depuración que pueden ser usadas por cualquier componente. La primera de estas dos herramientas es muy útil para depurar los algoritmos de localización de objetos respecto del robot. En el contexto del fútbol robótico se utiliza para depurar la localización de la pelota, de los jugadores y de las porterías. La segunda de ellas sirve para configurar la herramienta de GroundTruth y es muy útil para depurar los algoritmos de autolocalización que se utilizan en el fútbol robótico.\\
+
+Las conexiones con el robot se realizan a través de la red con ayuda de ICE. La figura \ref{fig:jmanager} es un esquema que representa la conexión entre JManager con la interfaz de ICE de cada componente.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap3/jmanager}
+  \end{center}
+  \caption{Conexión entre JManager y BICA.}
+  \label{fig:jmanager}
+\end{figure}
+
+Otra funcionalidad incluida en el JManager es VICODE, \textit{VIsual COmponent DEsigner}. Se muestra una captura de pantalla de la herramienta en la figura \ref{fig:pantallazo-vicode}. VICODE es una herramienta visual que permite diseñar componentes BICA. Esta herramienta genera el código C++ de un componente BICA que puede ser integrado directamente dentro de la arquitectura.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[scale=0.35]{img/cap3/Pantallazo-vicode}
+  \end{center}
+  \caption{Pantallazo de VICODE.}
+  \label{fig:pantallazo-vicode}
+\end{figure}
+
+\section{Wiimote} 
+\label{sec:wiimote}
+
+También conocido como \textbf{Wii Remote} o simplemente \textbf{mando de la Wii}. Es el mando principal de la videoconsola \textit{Wii} de Nintendo. Ambos salieron al mercado a finales de 2006. El Wiimote (Figura \ref{sec:wiimote}) fue diseñado para utilizarse con una sola mano, en vez de los típicos mandos de videoconsola que se habían creado hasta el momento. Tiene un diseño parecido al de un mando de televisión. Esta característica aporta al mando mayor intuitividad a la hora de manejarlo, ya que es sensible al movimiento. Con este diseño, Nintendo quería atraer al mundo de los videojuegos a gente que nunca había jugado.\\
+
+El Wiimote es un control remoto inalámbrico que utiliza la tecnología \textit{bluetooth} para conectarse pudiendo alejarse hasta 10 metros del punto de conexión. Dispone de siete botones, uno de ellos con forma de gatillo colocado en la parte posterior del mando. También tiene una cruz de direcciones y un botón de encendido/apagado. Además, en la parte frontal incorpora un pequeño altavoz y cuatro luces numeradas que indican el número de jugador cuando está conectado a una Nintendo Wii. La sensibilidad al movimiento la consigue gracias a unos acelerómetros que detectan el movimiento a lo largo de tres ejes. En la parte superior, el mando dispone de una cámara de infrarrojos que, junto con una barra de LEDs infrarrojos que viene con la videoconsola, convierte el mando en un dispositivo apuntador. Por último, también dispone de una memoria de 16KB, de los cuales 6 pueden ser libremente leídos o escritos, y lleva incorporado un mecanismo vibrador. Como fuente de alimentación utiliza dos baterías AA, que dotan al mando de una autonomía de entre 25 y 60 horas, dependiendo de las funcionalidades que se utilicen.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap3/wiimote}
+  \end{center}
+  \caption{Mando de control remoto de la Nintendo Wii, el Wiimote.}
+  \label{fig:wiimote}
+\end{figure}\
+
+Además de todas las funciones de las que dispone el mando, este dispone de un puerto de expansión en su parte inferior que permite añadir periféricos.
+Uno de los más populares es el \textit{Nunchuk}. Este es un joystick analógico con dos botones. Es necesario utilizar la otra mano para manejarlo. Existen muchos otros periféricos que se pueden utilizar con el mando, pero que sólo son útiles para jugar a algunos videojuegos y no para nuestra investigación, por lo que no hablaremos de ellos.\\
+
+Hemos escogido este dispositivo de control auxiliar porque cumple con todos los requisitos que se habían propuesto. Es un dispositivo diseñado para que sea fácil de utilizar para gente que no está acostumbrada a usar este tipo de controles. Que se pueda utilizar con una sola mano junto con que sea inalámbrico, aporta a la terapeuta mayor autonomía y le da la posibilidad de poder moverse por la sala e interactuar con los pacientes.\\
+
+Para implementar este dispositivo se ha utilizado una biblioteca externa de software libre, \textit{Motej v0.9}. Esta biblioteca está publicada bajo la licencia de Apache \textit{ASL 2.0}\footnote{http://www.apache.org/licenses/LICENSE-2.0.html}. \textit{Motej} es una biblioteca Java de comunicación con el Wiimote. Permite controlar distintos aspectos del mando como la lectura de los acelerómetros, el control de vibración, el encendido y apagado de los LEDs, la lectura de los botones y de la memoria EEPROM, la escritura de los registros del mando, la información de estado y los datos de calibración.
+
+
+
+
+
+
+
+
+
+

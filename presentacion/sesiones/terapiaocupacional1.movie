@@ -1,0 +1,705 @@
+wait time 2
+breakpoint
+mov hola
+music /home/nao/mp3/vocescien/tero_cd_1.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov introduccion
+music /home/nao/mp3/vocescien/tero_cd_2.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_3.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_4.mp3
+wait task es
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_5.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_6.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_7.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_8.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_9.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_10.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_11.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_12.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_13.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_14.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_15.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_16.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_17.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_18.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_19.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_20.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_21.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_22.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_23.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_24.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_25.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_26.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_27.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_28.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_29.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_30.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_31.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_32.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_33.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_34.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_35.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_36.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_37.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_38.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_39.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_40.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_41.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_42.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_43.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_44.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_45.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_46.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_47.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_48.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_49.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_50.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_51.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_52.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_53.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_54.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_55.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_56.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_57.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_58.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_59.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_60.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_61.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_62.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_63.mp3
+wait task mov
+wait task music
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_64.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_65.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_66.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_67.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_68.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_69.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_70.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_71.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_72.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_73.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_74.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_75.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_76.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_77.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_78.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_79.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_80.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_81.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_82.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_83.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_84.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_85.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_86.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_87.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_88.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_89.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_90.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_91.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_92.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_93.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_94.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_95.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_96.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_97.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_98.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_99.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_100.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_101.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_102.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_103.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_104.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_105.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_106.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_107.mp3
+wait task mov
+wait task music
+breakpoint
+mov es
+music /home/nao/mp3/vocescien/tero_cd_108.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_109.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_110.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_111.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_112.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_113.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_114.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_115.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_116.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_117.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_118.mp3
+wait task mov
+wait task music
+breakpoint
+mov sesion1
+music /home/nao/mp3/vocescien/tero_cd_119.mp3
+wait task mov
+wait task music
+wait press left
+breakpoint

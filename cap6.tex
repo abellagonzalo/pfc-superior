@@ -1,0 +1,71 @@
+\chapter{Conclusiones y trabajos futuros}
+\label{cap:conclusiones}
+
+Una vez presentado el software que se ha desarrollado y la utilización del mismo en las sesiones de terapia, en este último capítulo se exponen las conclusiones obtenidas en el ámbito tecnológico. En último lugar se proponen una serie de ideas y herramientas aplicables tanto a la ejecución de las terapias como a la elaboración de las mismas.
+
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+Para este proyecto fin de carrera se ha desarrollado una serie de herramientas de ayuda para manejar un robot en sesiones de terapia ocupacional con enfermos de Alzheimer, lo que se ha descrito como sesiones de roboterapia. Las herramientas son simples e intuitivas y permiten teleoperar al robot a la vez que se dirige una terapia. Además de una aplicación gráfica, se proponía implementar un método de control externo para facilitar el manejo del mismo.\\
+
+Como conclusión general del proyecto se puede decir que se han cumplido satisfactoriamente los objetivos marcados en el capítulo \ref{cap:objetivos}. Las herramientas diseñadas e implementadas funcionan correctamente y han sido validadas, a través de muchas iteraciones y prototipos, por los terapeutas e investigadores de la Fundación CIEN. Las herramientas son sencillas de utilizar, y la interfaz gráfica es bastante intuitiva y no requiere de conocimientos informáticos para usarla. A continuación se comentan los subobjetivos en los que se dividió el proyecto para simplificar la elaboración del mismo:
+
+\begin{itemize}
+\item \textbf{Terapias.} La aplicación reproduce los guiones de las terapias durante una sesión y se han implementado las acciones que se proponían en un principio: cargar terapias, ejecutar la acción siguiente y reproducir la acción que se quiera. La implementación realizada está explicada en la sección \ref{subsec:terapias}, ha sido probada en las terapias y se ha visto que funciona correctamente. Se ha implementado la funcionalidad mínima necesaria para reproducir un guión durante una sesión de terapia.
+
+\item \textbf{Teleoperar.} El terapeuta puede teleoperar al robot mediante un control intuitivo. Se han implementado las funcionalidades propuestas en un principio y, además, se han implementado algunas genuinas como la cola de reproducción de sonidos. Todas las funcionalidades implementadas han sido utilizadas y validadas por los terapeutas y validadas. Los diferentes módulos con los que se han resuelto estas funcionalidades están explicados en \ref{subsec:movimientoscuerpo}, \ref{subsec:movimientoscabeza} y \ref{subsec:sonidos}.
+
+\item \textbf{Métodos de control auxiliares.} Se ha desarrollado un método de control externo que facilita el manejo del robot durante las terapias. El dispositivo elegido, el Wiimote, es inalámbrico, fácil de usar y cumple las condiciones impuestas. Se conecta por bluetooth a la aplicación y permite al terapeuta desplazarse alrededor del grupo donde se realice la terapia y, al mismo tiempo, controlar al robot y los guiones.
+
+\item \textbf{Integración.} Por último se han integrado todas estas funcionalidades dentro de una misma aplicación. Esta aplicación tiene una interfaz simple, que puede ser utilizada por personal médico que no tenga conocimientos informáticos avanzados. El resultado de este desarrollo es la aplicación CIEN. Con él, se completa la parte de programación del proyecto.
+\end{itemize}
+
+Es importante remarcar que el proyecto que se ha realizado no se centra únicamente en el diseño e implementación de herramientas para manejar al robot durante una terapia, es más que eso. En este proyecto nos hemos responsabilizado de la parte técnica de una investigación médica que quiere introducir a un robot como herramienta terapéutica para enfermos de Alzheimer. Esto conlleva no sólo programar las herramientas, sino que hay que hacerse cargo de muchas otras tareas. Hay que realizar una evaluación de las herramientas disponibles, para ver qué se puede reutilizar y qué funcionalidades exige una sesión de terapia. Hay que diseñar e implementar la aplicación gráfica. Hay que asistir a las terapias para probar la aplicación. Y por último, hay que evaluar las herramientas junto con los terapeutas y doctores responsables de las terapias. Pero el proceso no acaba ahí, tal y como se explicó en el segundo capítulo, el resultado de este proceso es solamente un prototipo, por lo que este procedimiento se repite semanalmente durante todo el tiempo que dura la investigación.\\
+
+Siguiendo la línea marcada por los objetivos del proyecto, se impusieron una serie de requisitos que tenía que cumplir el producto final de la investigación. El lenguaje utilizado para la aplicación gráfica es Java. Ha sido implementada sobre un sistema GNU/Linux, en concreto sobre la distribución \textit{Ubuntu 10.04 LTS}. La aplicación es simple e intuitiva. Ha sido diseñada y pensada para que la utilicen usuarios sin apenas conocimientos informáticos. El software que controla el robot es una versión de BICA. Y por último, la aplicación incorpora un dispositivo externo que facilita el manejo del robot aportándole al terapeuta mayor autonomía.\\
+
+La conclusión personal del proyecto ha sido muy satisfactoria. La posibilidad de aplicar tecnología robótica en una labor social es muy gratificante. No sólo es la posibilidad de ver como las herramientas desarrolladas funcionan y son utilizadas por terceras personas, sino que además contribuye a mejorar la sociedad y a intentar mitigar los efectos de un mal que cada día afecta a más gente: la enfermedad de Alzheimer.\\
+
+Otro punto del cual me siento muy orgulloso es el haber realizado como proyecto una investigación completa. No sólo ha consistido en desarrollar herramientas para que se \textit{usen} en terapias y ahí termine el proyecto, sino que nos hemos encargado de todos los aspectos relacionados con las terapias: diseño de las herramientas, implementación de sesiones, desarrollo de las terapias junto con los terapeutas, evaluación de las terapias y de las herramientas con los terapeutas y con el tutor del proyecto, mantenimiento de todo el software empleado y muchas otras actividades.\\
+
+Pero, sin duda alguna, de este proyecto me quedo con el día a día de las terapias. Ver las caras de alegría de los pacientes cuando ven a \textit{Paquito}, así es como llaman al robot, produce mucha satisfacción, al igual que cuando ves los resultados médicos y, efectivamente, compruebas que el trabajo que estás invirtiendo sirve para algo más que para hacer un proyecto fin de carrera.\\
+
+\section{Trabajos futuros}
+\label{sec:trabajosfuturos}
+
+El proyecto que hemos realizado forma parte de una investigación médica de mayor duración. Aunque, con el fin de cerrar el proyecto fin de carrera, hemos cerrado la parte de diseño e implementación en este punto para presentar los resultados obtenidos hasta ahora, ello no quiere decir que la investigación médica haya concluido también. De hecho, ésta continúa y el grupo de Robótica de la universidad sigue colaborando con él, mejorando la parte técnica relativa al robot.\\
+
+En este apartado se proponen una serie de mejoras a las funcionalidades del robot y de las herramientas, así como de alguna herramienta, que puede ser muy útil en este contexto de las terapias.\\
+
+\subsection{Mejoras relativas a las herramientas}
+\label{subsec:mejorasapp}
+
+En este apartado se proponen una serie de mejoras relativas a las herramientas con la intención de crear una segunda versión de ésta. Las mejoras propuestas son:
+
+\begin{itemize}
+\item Mostrar más información relativa al estado del robot; por ejemplo, el nivel de batería. También sería bueno mostrar mas información relativa al guión de una terapia.
+\item Otra mejora bastante interesante sería añadir la funcionalidad de descubrir servicios en una red local. Con esto, el encargado de la terapia con el robot no tendría que conocer ni la ip ni el nombre del robot, ni el puerto de conexión de BICA, lo que simplificaría enormemente la conexión con éste.
+\end{itemize}
+
+\subsection{Mejoras relativas a los componentes de BICA}
+\label{subsec:mejorascomponentes}
+
+Las mejoras que se presentan a continuación son relativas a los componentes BICA ya existentes. También se proponen nuevos componentes que aportarían mayor autonomía al robot y mejorarían la calidad de las sesiones.
+
+\begin{itemize}
+\item Como acabamos de comentar, sería bueno mostrar más información relativa al estado del guión de la terapia que se está realizando. Esto afecta directamente al pseudo-lenguaje creado para la implementación de los guiones. Sería bueno poder agrupar los comandos de forma que se ejecuten grupos de comandos y no comandos sueltos. Esto nos permitiría tener varias acciones en un mismo grupo y tratarlo como una unidad, lo que simplificaría el desarrollo de los guiones.
+\item Un componente BICA que actualmente no existe y aportaría mayor autonomía al robot es un localizador de caras. Este componente se podría ejecutar en tiempos de inactividad después de haber formulado una pregunta. Esto automatizaría la tarea de centrar la mirada del robot en los pacientes para estimularles y animarles a que contesten. 
+\item A este componente localizador de caras podría sumársele otro componente reconocedor de caras que pudiera diferenciar a los pacientes e, incluso, llamarles por su nombre. Esto reforzaría los lazos con el robot y les motivaría a ser más participativos en las sesiones.
+\item Otro componente relacionado con estos dos sería un localizador de sonidos. El robot sería capaz de localizar de donde proviene un sonido para mirar hacia la fuente de éste o, incluso, girar el cuerpo porque la fuente esté fuera de su alcance visual.
+\end{itemize}
+
+\subsection{Herramientas propuestas}
+\label{subsec:herramientaspropuestas}
+
+Para terminar, presentamos dos herramientas que podrían ayudar en el desarrollo de las terapias de una forma global. 
+
+\begin{itemize}
+\item La primera herramienta es un editor visual de guiones. Esta herramienta permitiría crear y editar guiones, tarea bastante engorrosa cuando se trata de ficheros de más de 500 líneas. 
+\item La segunda herramienta sería una versión de nuestra aplicación, pero programada para el sistema operativo Android. De esta manera se podría controlar al robot desde una tableta electrónica o incluso desde un teléfono móvil. Esto aportaría mayor autonomía al terapeuta.
+\end{itemize}
+

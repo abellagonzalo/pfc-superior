@@ -1,0 +1,167 @@
+\chapter{Experimentos}
+\label{cap:experimentos}
+
+En este capítulo se explican los experimentos realizados para comprobar la validez del sistema. El capítulo está estructurado en dos secciones, en las cuales se presentan los resultados obtenidos desde dos puntos de vista distintos. En primer lugar se comentan los resultados tecnológicos. Estos resultados son los derivados de atender a las necesidades y peticiones de los terapeutas e innovar y proponer posibles mejoras. Actualmente se pueden realizar tres tipos de sesiones: sesiones estructuradas por guiones, sesiones no estructuradas y otras actividades terapéuticas.\\
+
+En segundo lugar, se comentan los resultados médicos obtenidos en los pacientes participantes en las terapias. Estos resultados, como es lógico, no han sido producidos por nosotros, sino por los investigadores de la Fundación CIEN responsables de las investigaciones en roboterapia, aunque su aportación demuestra los efectos de este trabajo en este campo.\\
+
+Los experimentos que se han realizado para validar el sistema no son los típicos que se efectúan en un PFC, en donde se verifica que el sistema se comporta correctamente. En su lugar todas las pruebas y esfuerzos se han centrado en la validación del sistema por parte de los usuarios, los terapeutas encargados de realizar las sesiones de terapia con el robot. La realimentación por parte del personal médico de la investigación ha sido continua desde el primer prototipo, para conseguir el mayor grado de aceptación por parte de estos.
+
+\section{Resultados tecnológicos}
+\label{sec:resultadostecnologicos}
+
+En esta sección se explica el uso del software creado en una sesión real. Realizar una sesión de roboterapia es una actividad compleja en la que interactúan entre sí varios componentes: el robot, un ordenador y el Wiimote. El objetivo del proyecto era juntar todos estos elementos de una manera simple, para que puedan ser utilizados por cualquier persona sin conocimientos informáticos. Para poder hacer una sesión de terapia con el robot hay que tener en cuenta una serie de factores:
+
+\begin{itemize} 
+
+\item \textbf{Entorno.} El lugar donde se ejecutan las terapias es importante. Lo ideal es que se realice en habitaciones espaciosas, lo suficientemente amplias como para colocar a todos los pacientes en círculo, o alrededor del robot, sin que nada ni nadie les obstaculice la visión de éste. 
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=12cm]{img/cap5/disposicion-pacientes-roboterapia}
+  \end{center}
+  \caption{Disposición de los pacientes en una sesión de roboterapia.}
+  \label{fig:disposicionpacientesroboterapia}
+\end{figure}
+
+\item \textbf{Participantes.} Los pacientes deben estar sentados, ya que su débil estado físico les impide estar el tiempo que dura la sesión de pie. De hecho, muchos de ellos no son capaces de mantenerse en pie ni de caminar por ellos mismo y necesitan ayuda. El espacio central del círculo de los pacientes debe ser lo suficientemente grande como para permitir al robot caminar por su interior libremente, de forma que pueda acercarse a ellos para llamar su atención. El interior del círculo no debe contener obstáculos para evitar que el robot se caiga. En caso de una caída, el robot se levanta sólo y no genera ningún problema, pero hay más posibilidades de que se rompa algún motor que no permita terminar la sesión. Por el mismo motivo, para evitar que se rompa, el robot debe estar colocado en el suelo y no encima de una mesa o una superficie en altura, ya que una caída desde ahí arriba haría muy probable que se rompiese el robot.
+
+\item \textbf{Infraestructura.} La infraestructura tecnológica utilizada en las terapias es bastante simple. Sólo es necesario la instalación de un punto de acceso inalámbrico. Este punto de acceso sirve para realizar la conexión entre la aplicación y el robot, que se realiza por la red Wifi. En caso de querer utilizar el Wiimote para teleoperar al robot durante la sesión, es necesario que el portátil esté provisto de un adaptador blueetooth. Hay que tener en cuenta que la tecnología bluetooth tiene un alcance máximo de aproximadamente 10 metros. Esta es la distancia máxima que puede separarse el terapeuta del portátil, ya que la conexión bluetooth se realiza entre éste y el Wiimote. A pesar de que el alcance no es muy grande, es suficiente para realizar las terapias en la fundación.
+
+\item \textbf{Precauciones.} Las terapias actualmente se realizan en una residencia de ancianos situada en el mismo centro donde se encuentra la Fundación CIEN, el Centro Alzheimer Fundación Reina Sofía\footnote{http://www.centroalzheimer.es}. Se trata de un complejo asistencial para personas mayores afectadas por la enfermedad de Alzheimer. Aunque hasta la fecha sólo se han realizado terapias en este lugar, otras residencias y centros hospitalarios son lugares potenciales donde se pueden ejecutar éstas. Debido a que la comunicación es totalmente inalámbrica, es necesario comprobar que en las cercanías del lugar donde se ejecuten las terapias no existan máquinas o dispositivos que se puedan ver afectados por las ondas generadas por estos aparatos, o por el contrario, que la red inalámbrica generada por el punto de acceso tenga demasiadas interferencias y se haga imposible la conexión con el robot. En el caso de conexión bluetooth entre el ordenador y el Wiimote puede ocurrir lo mismo.
+
+\item \textbf{Conducir una sesión.} Las sesiones siempre están dirigidas por un terapeuta. El robot es simplemente una herramienta que ayuda al terapeuta a guiar y estimular a los pacientes en los distintos juegos y ejercicios. Cuando comienzan las sesiones, el terapeuta siempre presenta al robot para ver si se acuerdan de él. A pesar de los esfuerzo del terapeuta por captar la atención de los pacientes sobre el robot, la hora del día en la que se realiza la terapia influye bastante en los resultados. Por las mañanas, que es cuando hemos realizado las sesiones con el robot, suelen estar más dormidos que por las tardes. Esto es debido en gran parte a los efectos secundarios producidos por la medicación que siguen, que son más visibles durante la mañana. Aun así, hay que ser sistemáticos en las horas para poder obtener resultados objetivos.
+
+\item \textbf{Voz del robot.} En un principio se utilizaba un sintetizador de voz que reproducía texto con una voz. Se vio que este mecanismo no era útil en este contexto porque los enfermos no entendían bien lo que decía el robot y la voz les resultaba extraña, ya que no están acostumbrados a las nuevas tecnologías. Como alternativa se propuso, y aún se sigue haciendo de esta manera, grabar los textos dichos por uno de los terapeutas. De esta manera los textos se entienden mucho mejor.
+
+\item \textbf{Evaluación médica.} Para poder evaluar los resultados en la investigación médica, todas las sesiones se graban con dos cámaras de vídeo. Esto permite a los doctores de la fundación, por medio de una comisión evaluadora, analizar los vídeos y sacar conclusiones al término de la investigación.
+
+\end{itemize}
+
+Uno de los síntomas de la enfermedad de Alzheimer es la incapacidad de concentrarse en alguna tarea por un periodo de tiempo. Por eso las sesiones tienen una duración de unos 30-40 minutos. Cuanto más avanzada se encuentra la enfermedad, más difícil les resulta concentrarse. La posibilidad de mover al robot y acercarse a ellos les ayuda en este aspecto. Igual pasa cuando se fija la mirada del robot en la de los pacientes. La unión de estos dos factores ayuda a que las preguntas que realiza el robot tengan un carácter más personal, ya que puede realizarlas encarando el cuerpo al paciente y mirándole a los ojos. Esto produce la sensación de que el robot te habla personalmente y ayuda a la estimulación de éstos. A continuación se explican las distintas sesiones que se pueden realizar.
+
+\subsection{Sesiones estructuradas por guiones}
+\label{subsec:sesionesestructuradasporguiones}
+
+Las sesiones estructuradas por guiones se realizan en los grupos considerados como leves o moderados. Los enfermos en estos grupos aún conservan algunas capacidades mentales y físicas. Los juegos o actividades que se realizan son sencillos y obligan a los pacientes a responder a preguntas sencillas, a relacionar objetos cotidianos entre sí, a realizar cálculos matemáticos básicos, a recordar refranes típicos o a cantar canciones populares. Todas las actividades están enfocadas a retrasar los efectos de la enfermedad de Alzheimer.\\
+
+Como se ha comentado en la sección \ref{sec:sesiones}, existen tres tipos de sesiones: las sesiones de terapia ocupacional, las sesiones de musicoterapia y las sesiones de fisioterapia. Todas las semanas se realizan dos sesiones, una sesión de terapia ocupacional o de musicoterapia y una de fisioterapia. Las primeras que hemos nombrado se van alternando una semana cada una.\\
+
+Para realizar las sesiones estructuradas por un guión, el trabajo comienza mucho antes de efectuar la terapia en sí. Primero, los médicos y doctores de la fundación elaboran la sesión teniendo en cuenta el estado del grupo para el que se realiza. Luego hay que crear el guión que se ejecuta en el componente \textbf{Movie}. Esta tarea nos corresponde a nosotros. Y por último, después de haber realizado la sesión, los investigadores de la fundación evalúan la sesión. Hay que diferenciar entre evaluar los resultados médicos de las sesiones, que se realiza al finalizar todas las terapias analizando los vídeos grabados de éstas, y evaluar una sesión, en donde se buscan posibles errores que se hayan podido cometer en la elaboración del guión para subsanarlos de cara a las siguientes sesiones. En este caso, nos referimos a la evaluación de la sesión para encontrar errores. Este proceso, al igual que el desarrollo de la aplicación que hemos creado, se realiza en cada iteración. Se puede ver un diagrama temporal del diseño de una sesión en la figura \ref{fig:diagramatemporaldisenosesion}.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[scale=0.7]{img/cap5/diagrama-temporal-diseno-sesion}
+  \end{center}
+  \caption{Diagrama temporal del diseño de una sesión de terapia.}
+  \label{fig:diagramatemporaldisenosesion}
+\end{figure}
+
+Cuando se ejecuta un guión, el robot puede ser teleoperado cuando se encuentra esperando a que se dé la orden para que se ejecute el siguiente comando. El terapeuta puede mover al robot por el círculo de pacientes, mover la cabeza para mirarlos o realizar movimientos para animarles a contestar. Se ha comprobado que la participación por parte de los pacientes es mayor cuando se les acerca el robot y les mira, por lo que los terapeutas, cada dos o tres preguntas mueven al robot por el círculo acercándose a los pacientes menos participativos. En la figura \ref{fig:robotmirandopaciente} se puede ver al robot mirando a uno de los pacientes durante un sesión de terapia para captar su atención.\\
+
+En las sesiones de fisioterapia el robot realiza los mismos movimientos que deben ejecutar los pacientes. Mediante estos ejercicios se intenta que los ancianos muevan todo el cuerpo y no pierdan tanta movilidad. Los ejercicios comienzan moviendo la cabeza y recorren todas las articulaciones hasta los pies. En la secuencia de imágenes se pueden ver varios ejercicios que se ejecutan en una de las sesiones de fisioterapia que hemos implementado. Las figuras \ref{fig:cabezaarriba} y \ref{fig:cabezaabajo} corresponden a un ejercicio de mover arriba y abajo el cuello, las figuras \ref{fig:brazosarriba} y \ref{fig:brazosabajo} corresponden al ejercicio de subir y bajar los brazos estirados, y las figuras \ref{fig:abrirbrazos} y \ref{fig:cerrarbrazos} corresponden al ejercicio de abrir y cerrar los brazos con ellos estirados.
+
+\begin{figure} [t]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap5/robot-mirando-paciente}
+  \end{center}
+  \caption{El robot mirando a un paciente.}
+  \label{fig:robotmirandopaciente}
+\end{figure}
+
+
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[Cabeza arriba]{
+    \label{fig:cabezaarriba}
+    \includegraphics[width=2.4cm]{img/cap5/cabeza-arriba}
+  }
+  \subfloat[Cabeza abajo]{
+    \label{fig:cabezaabajo}
+    \includegraphics[width=2.4cm]{img/cap5/cabeza-abajo}
+  }
+  \subfloat[Brazos arriba]{
+    \label{fig:brazosarriba}
+    \includegraphics[width=2.4cm]{img/cap5/brazos-arriba}
+  }
+  \subfloat[Brazos abajo]{
+    \label{fig:brazosabajo}
+    \includegraphics[width=2.4cm]{img/cap5/brazos-abajo}
+  }
+  \subfloat[Abrir brazos]{
+    \label{fig:abrirbrazos}
+    \includegraphics[width=2.4cm]{img/cap5/abrir-brazos}
+  }
+  \subfloat[Cerrar brazos]{
+    \label{fig:cerrarbrazos}
+    \includegraphics[width=2.4cm]{img/cap5/cerrar-brazos}
+  }
+  \caption{Distintos ejercicios que se realizan en una sesión de fisioterapia.}
+  \label{fig:ejerciciosfisioterapia}
+\end{figure}
+
+De este proyecto, junto con otros proyectos en curso relacionados con las terapias de enfermos de Alzheimer se ha escrito el artículo incluido en el apéndice \ref{app:a}, aún en proceso de revisión.
+
+\subsection{Sesiones no estructuradas}
+\label{subsec:sesionesnoestructuradas}
+
+Las sesiones no estructuradas están pensadas para los grupos de pacientes más graves. Estos se encuentran en un estado que no son capaces de reaccionar a estímulos externos, y menos aún de seguir un guión. Para estos grupos se pensó que lo mejor era, directamente, teleoperar al robot y realizar las acciones que el terapeuta crea convenientes según reaccionen los enfermos. En la figura \ref{fig:terapeutarobot} se puede ver a una terapeuta teleoperando el robot mediante el Wiimote.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=8cm]{img/cap5/terapeuta-robot}
+  \end{center}
+  \caption{Terapeuta teleoperando el robot en una sesión.}
+  \label{fig:terapeutarobot}
+\end{figure}
+
+Aunque no se disponga de un guión, estas sesiones también se preparan. Las sesiones están compuestas por varios sonidos cotidianos fáciles de identificar por los pacientes, como sonidos de animales o sonidos de ambiente. Los sonidos de ambiente son, por ejemplo, un despertador, una sirena de bomberos, un timbre, y más sonidos de este tipo. También disponemos de los nombres de los pacientes. Con los nombres y algunas palabras y frases cortas, tal y como se explicó en \ref{subsec:sonidos}, se pueden crear oraciones más complejas para saludar a los pacientes o para llamar su atención.
+
+\subsection{Otras actividades terapéuticas}
+\label{subsec:otrasactividadesterapeuticas}
+
+Las dos actividades principales que se realizan en las terapias son las dos que acabamos de comentar: las sesiones estructurados por un guión y las no estructuradas. Pero el diseño que se ha realizado de la aplicación y del sistema completo permite realizar otras actividades terapéuticas fácilmente.\\
+
+De vez en cuando, y con motivo de alguna fiesta en especial o fecha importante, el centro realiza actividades distintas de las habituales. En concreto, después de haber terminado las sesiones correspondientes a nuestra investigación, en Navidad, se organizó una sesión de villancicos con el robot. La sesión de villancicos estaba compuesta por villancicos clásicos como \textit{Los peces en el río}, \textit{Hacia Belén va una burra} o \textit{La marimorena}.\\
+
+La sesión estaba formada por distintos grupos de leves y moderados. Se tuvo que realizar en los pasillos de la fundación, porque tanta gente no cabía en ninguna sala. A los pacientes se les puso en círculo, como en las sesiones habituales, y se les dio un instrumentos musical a cada uno de ellos. Los instrumentos eran panderetas, zambombas, palos chinos, maracas y, en general, instrumentos de percusión fáciles de tocar. Al robot se le disfrazó con un traje de Papá Noél (Figura \ref{fig:papanoel}) para darle un ambiente más navideño.\\
+
+La sesión duró aproximadamente 50 minutos, en los que el robot cantaba todos los villancicos mientras bailaba y se movía por todo el interior del círculo, y los pacientes tocaban los instrumentos al ritmo de las música y cantaban las canciones. Los resultados obtenidos fueron muy buenos, tanto que uno de los investigadores de la Fundación CIEN responsables del proyecto, al conocer el tiempo que llevaban los pacientes cantando y tocando los instrumentos sin hacer ningún descanso, nos comentó que estaba impresionado de la respuesta que estaba teniendo la gente. Nos dijo que era muy difícil captar la atención de los enfermos y mantenerlos activos tanto tiempo, ya que les cuesta mucho concentrarse.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=8cm]{img/cap5/papanoel}
+  \end{center}
+  \caption{El robot disfrazado de Papá Noel.}
+  \label{fig:papanoel}
+\end{figure}
+
+\section{Resultados médicos}
+\label{sec:resultadosmedicos}
+
+Los resultados médicos de la investigación han sido evaluados por un equipo formado por personal de distintas universidades y centros de investigación médica. Los resultados derivados de este trabajo han dado pie a varios artículos. En el apéndice \ref{app:b} se adjunta el póster presentado en un congreso médico en 2011. El póster publica los resultados obtenidos en el estudio piloto de roboterapia en pacientes con demencia moderada. Estos resultados se presentan porque son la evaluación del impacto del desarrollo realizado por este proyecto.\\
+
+Como hemos comentado anteriormente, las terapias cognitivas y las sesiones de fisioterapia con el robot se han realizado dos días por semana, durante tres meses, en grupos de pacientes con demencia moderada. Durante el proyecto se han realizado sesiones con más grupos, pero los resultados no han sido publicados aún. En estas evaluaciones médicas se han mirado distintos aspectos relacionados con la enfermedad de Alzheimer, como la apatía, el deterioro general o la calidad de vida en estadíos tardíos de demencia.\\
+
+Los grupos de pacientes evaluados en este estudio estaban divididos según el avance de la enfermedad medido en la escala GDS (Escala de deterioro global), que es una escala estandarizada que sirve para evaluar el estado de demencia de un paciente. Puede tomar valores entre 1, que significa ausencia de alteración cognitiva, hasta 7, que se tiene un defecto cognitivo muy grave. El 3,4\% de los pacientes se encuentran en GDS 3, el 24,1\% con GDS 4, el 41,4\% con GDS 5 y el 31\% con GDS 6 (Figura \ref{fig:muestrapacientes}). La media de edad de los pacientes era de 86,2 años y el rango de edades estaba comprendido entre 74 y 100 años. El 83,34\% eran mujeres.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=12cm]{img/cap5/muestrapacientes}
+  \end{center}
+  \caption{Muestra del estado de los pacientes participantes en la investigación medido en la escala de deterioro global (GDS).}
+  \label{fig:muestrapacientes}
+\end{figure}
+
+Los resultados médicos que se muestran en la figura \ref{fig:resultadosmeritxell} son bastante prometedores. En ellos se comparan los resultados obtenidos en pacientes tratados con terapias tradicionales y pacientes tratados con roboterapia. Los resultados son visiblemente mejores en los pacientes tratados con el robot que sin él. En concreto, aspectos como la ansiedad, la irritabilidad o los comportamientos alborotadores durante la noche fueron los que tuvieron una mejora mayor.\\
+
+Los resultados más significativos de esta investigación fue que la inquietud y la depresión de los pacientes, en general, mejoró. Las conclusiones de la investigación son positivas. Los síntomas neuropsiquiátricos y la apatía tendieron a mejorar después de la roboterapia en pacientes con demencia moderada.
+
+\begin{figure} [t]
+  \begin{center}
+    \includegraphics[scale=0.12]{img/cap5/resultadosmeritxell}
+  \end{center}
+  \caption{Resultados gráficos de la investigación médica.}
+  \label{fig:resultadosmeritxell}
+\end{figure}

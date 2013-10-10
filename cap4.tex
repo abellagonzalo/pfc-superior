@@ -1,0 +1,382 @@
+\chapter{Descripción informática}
+\label{cap:descripcion}
+
+En este capítulo se detalla el trabajo realizado dentro de este proyecto. Se hablará de las mejoras introducidas en la realización de las terapias y de las herramientas creadas.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap4/componentes-jmanager}
+  \end{center}
+  \caption{Captura de pantalla de la pestaña de administración de los \textit{componentes} en la herramienta JManager.}
+  \label{fig:componentes-jmanager}
+\end{figure}
+
+El trabajo no se limita únicamente a las herramientas desarrolladas, sino que la experimentación y la realimentación son aspectos clave en el trabajo realizado. En primer lugar se evalúa el estado tecnológico en el que se encuentran las herramientas utilizadas en las sesiones de Roboterapia. Para ello se acudió a varias terapias, para comprender bien el contexto del problema y las necesidades reales de los terapeutas cuando están trabajando. Después se describirá la aplicación de escritorio creada para la realización las terapias. También se explicará cómo se ha integrado el Wiimote con la aplicación y cómo se usa. Por último, se explican las sesiones que se han implementado para poder realizar las terapias con nuevos grupos.
+
+\section{Evaluación del estado de las herramientas disponibles}
+\label{sec:evaluacion}
+
+Las sesiones de Roboterapia estaban realizándose con las herramientas creadas por Raúl Benítez Mejía, \cite{Benitez2010}. Estas herramientas estaban integradas en el JManager, aplicación de la cual hemos hablado en \ref{sec:jmanager}. Siguiendo la filosofía de componentes de BICA, el JManager dispone de una interfaz gráfica para modular cada componente. Primero es necesario activar manualmente los componentes que se quieren utilizar. En nuestro caso se deben activar los componentes de los que se ha hablado en el capítulo anterior: \textbf{Body}, \textbf{Head}, \textbf{Music} y \textbf{Movie}. La figura \ref{fig:componentes-jmanager} es una captura de pantalla de la pestaña de la herramienta JManager en la que se activan y desactivan los \textit{componentes} de BICA. Además de esta funcionalidad tiene otras, como pueden ser la activación del modo de depuración de los \textit{componentes} o la activación de distintas herramientas de depuración del JManager.\\
+
+Una vez que los \textit{componentes} están activos, seleccionando cada uno de ellos, hay que pulsar sobre el botón con el título \textit{Show GUI} para mostrar la interfaz gráfica con la que modular dicho \textit{componente} (Figura \ref{fig:conexion-jmanager-bica}). Estas interfaces fueron creadas para probar, depurar y utilizar los \textit{componentes}, pero de manera individual y sin un contexto determinado. En un contexto como el que se presenta, las terapias, dichas interfaces son incómodas y, en ocasiones, difíciles de usar. También resulta complicado teleoperar al robot al tiempo que se realiza una sesión con tantas ventanas abiertas.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=12cm]{img/cap4/conexion-jmanager-bica}
+  \end{center}
+  \caption{Esquema de modulación de un \textit{componente} desde el GUI correspondiente.}
+  \label{fig:conexion-jmanager-bica}
+\end{figure}
+
+Antes de empezar a diseñar e implementar la aplicación, es imprescindible evaluar en profundidad las herramientas que hay disponibles y descubrir los aspectos en los que fallan durante una terapia.
+A continuación se analiza por separado cada una de las interfaces gráficas de los \textit{componentes} BICA y se resaltarán los puntos negativos.
+
+\subsection{Evaluación del componente Music}
+\label{subsec:analisis-music}
+
+En la figura \ref{fig:captura-music} se muestra una captura de pantalla de la interfaz gráfica del componente \textbf{Music}. Este \textit{componente} es bastante sencillo de utilizar. Para reproducir un fichero se introduce en el campo de texto disponible la ruta de dicho fichero. Esta ruta debe ser absoluta y representa donde se ubica el fichero, pero en el sistema de ficheros del robot, no de la máquina donde se ejecuta el JManager. Después se carga el fichero mediante el botón \textit{Load MP3} y se reproduce con el botón \textit{Play}. La reproducción se puede parar en cualquier momento pulsando \textit{Stop}. Mediante el slider del inferior de la ventana se regula el volumen.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=6cm]{img/cap4/captura-music}
+  \end{center}
+  \caption{Captura de pantalla de la interfaz gráfica del componente \textbf{Music}.}
+  \label{fig:captura-music}
+\end{figure}
+
+Este método de reproducir ficheros es bastante incómodo. Los inconvenientes que tiene son:
+
+\begin{enumerate}
+\item Es necesario conocer la ruta exacta de dónde se encuentra el fichero que se quiere reproducir en el sistema de ficheros remoto, el del robot. 
+\item Para reproducir un fichero hay que hacer demasiadas acciones. Primero hay que introducir la ruta del fichero, segundo pulsar \textit{Load MP3} y, por último, pulsar \textit{Play} para que suene. 
+\end{enumerate}
+
+
+\subsection{Evaluación del componente Body}
+\label{subsec:analisis-body}
+
+En la figura \ref{fig:captura-body} se muestra una captura de pantalla de la interfaz gráfica del componente \textbf{Body}. Desde ella se puede teleoperar al robot y hacer que se desplace. Mediante los sliders se ajusta la velocidad de la caminata. Cada uno de ellos ajusta un parámetro: la velocidad lineal, la de rotación y la de desplazamiento lateral. Cuando se que quiere para se pulsa el botón de \textit{Stop}.  Para ejecutar los movimientos fijos disponibles en el robot, se utiliza el campo de texto de la esquina superior derecha. En él se introduce el nombre del movimiento y se pulsa el botón \textit{doMove}. Los botones de la esquina inferior derecha son movimientos de distintas patadas que utiliza el robot cuando juega al fútbol para golpear la pelota. Esta interfaz presenta varios inconvenientes:
+
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=9cm]{img/cap4/captura-body}
+  \end{center}
+  \caption{Captura de pantalla de la interfaz gráfica del componente \textbf{Body}.}
+  \label{fig:captura-body}
+\end{figure}
+
+\begin{enumerate}
+\item No se sabe qué slider ajusta qué parámetro de la caminata. Se puede intuir que el vertical ajusta la velocidad lineal del robot, pero los otros dos, los que ajustan la velocidad de rotación y la lateral, no se distinguen.
+\item Los sliders están implementados según el sistema de coordenadas que utiliza el robot. Como éste utiliza un sistema de coordenadas dextrógiro cuando el valor del slider crece, se acerca al extremo derecho, el robot gira a la izquierda, mientras que si decrece, se acerca al extremo izquierdo, el robot gira a la derecha. Este sistema es antiintuitivo y hace difícil controlar al robot con precisión. En la imagen se puede ver el eje de coordenadas del robot superpuesto en la imagen.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=8cm]{img/cap4/sistema-coordenadas-robot}
+  \end{center}
+  \caption{Sistema de coordenadas dextrógiro.}
+  \label{fig:sistema-coordenadas-robot}
+\end{figure}
+
+\item Los botones de la esquina inferior derecha, que ejecutan distintas patadas, son irrelevantes para las terapias. Son muy útiles en el contexto del fútbol robótico, pero inútiles en el de las sesiones de Roboterapia.
+\item Al igual que pasaba con la reproducción de los ficheros de audio, el método para ejecutar movimientos fijos es incómodo. Es necesario saberse el nombre del movimiento, escribirlo y luego pulsar el botón \textit{doMove}. Demasiadas acciones para ejecutar un sólo movimiento.
+\end{enumerate}
+
+\subsection{Evaluación del componente Head}
+\label{subsec:analisis-head}
+
+En la figura \ref{fig:captura-head} se muestra una captura de pantalla de la interfaz gráfica del componente \textbf{Head}. Esta interfaz dispone de dos métodos de control de la cabeza. Uno es modulando la velocidad y posición del cuello mecánico y otro, modulando solamente la velocidad. Mediante los sliders se ajusta dicha posición o la velocidad de movimiento del cuello. El slider horizontal modula el parámetro Pan y el vertical, el Tilt. Mediante el botón situado arriba a la izquierda se cambia de un modo a otro.\\
+
+Esta interfaz es bastante sencilla de utilizar, aunque presenta un inconveniente: en ocasiones no queda claro cuál de los dos métodos se está usando. Es necesario fijarse en el botón superior izquierdo para saberlo, lo cual resulta incómodo cuando se está pendiente de llevar la terapia más que de teleoperar al robot.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=5cm]{img/cap4/captura-head}
+  \end{center}
+  \caption{Captura de pantalla de la interfaz gráfica del componente \textbf{Head}.}
+  \label{fig:captura-head}
+\end{figure}
+
+\subsection{Evaluación del componente Movie}
+\label{subsec:analisis-movie}
+
+Por último, la figura \ref{fig:captura-movie} muestra una captura de pantalla de la interfaz gráfica del componente \textbf{Movie}. Este \textit{componente} es bastante más complejo de utilizar que los otros. Esto es lógico, ya que este \textit{componente} contiene más funcionalidades.\\
+
+Mediante el botón \textit{Load Movie} aparece un diálogo para seleccionar la sesión que se quiere abrir. El botón \textit{Create Movie} sirve para crear un guión. Mediante los botónes \textit{Pause}, \textit{Play} y \textit{Stop} se puede pausar, reanudar o parar el guión que se está reproduciendo. Los botones \textit{Previous BreakPoint} y \textit{Next BreakPoint} sirven para buscar automáticamente en el fichero el breakpoint siguiente y el anterior. El guión cargado se muestra en el área de texto del centro de la ventana. Mediante los botones situados justo debajo de este área de texto se puede salvar el fichero si se edita con el botón \textit{Save} o enviarlo al robot, mediante el botón \textit{Send File to Robot}. El área de texto de la derecha contiene información sobre los comandos que se pueden utilizar en los guiones.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=15cm]{img/cap4/captura-movie}
+  \end{center}
+  \caption{Captura de pantalla de la interfaz gráfica del componente \textbf{Movie}.}
+  \label{fig:captura-movie}
+\end{figure}
+
+Este interfaz gráfico contiene mucha funcionalidad, lo que provoca que sea confuso y difícil de manejar. Los inconvenientes que presenta son:
+
+\begin{enumerate}
+\item El primero y más importante es el haber juntado dos funcionalidades bastante complejas en una sola ventana: la edición y la ejecución de guiones. Son tantas las cosas que se pueden hacer, que la interfaz resulta confusa y complicada de manejar.
+\item Cuando se carga un fichero, para que éste pueda reproducirse en el robot, deben tener la mismo ruta en ambos sistemas de fichero. Es decir, si en el ordenador donde estamos ejecutando el JManager cargamos el fichero de la ruta \texttt{/home/nao/movies/sesion.movie}, en el robot también debe existir este mismo fichero con la misma ruta. Esto nos obliga a tener un conocimiento profundo del sistema de ficheros del robot.
+\item El uso de los breakpoints es bastante aparatoso y complicado de usar. En caso de que se apague el robot por falta de batería o por cualquier otro problema, es difícil recuperar el punto donde se quedó la sesión.
+\item Mostrar los comandos del guión no aporta nada a los terapeutas, ya que es difícil de leer cuando se ejecuta una sesión.
+\item En caso de no editar el guión, la información disponible en área de texto de la derecha no es necesaria.
+\end{enumerate}
+
+Todos los inconvenientes de los distintos \textit{componentes} se han tenido en cuenta para realizar nuestra aplicación y se ha intentado mejorar la usabilidad de ésta.
+
+\section{Aplicación CIEN}
+\label{sec:appcien}
+
+Una vez descritos los inconvenientes de la aplicación anterior, en este proyecto se ha desarrollado una aplicación que permita realizar terapias para enfermos de Alzheimer con el robot Nao. Esta aplicación ha de ser sencilla e intuitiva para que sea utilizada por los terapeutas que realizan las terapias. El software creado para dicho fin se presenta en esta sección, la Aplicación CIEN.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[width=15cm]{img/cap4/captura-cien}
+  \end{center}
+  \caption{Captura de pantalla de la Aplicación CIEN.}
+  \label{fig:captura-cien}
+\end{figure}
+
+Como se ha comentado en el capítulo \ref{cap:objetivos}, esta aplicación ha sido creada a base de distintos prototipos que eran probados en las terapias. La realimentación para hacer el siguiente prototipo provenía principalmente de los terapeutas e investigadores encargados de las terapias y de la experiencia personal. La figura \ref{fig:captura-cien} es una captura de pantalla de la interfaz gráfica de la aplicación. Este es el resultado al que se ha llegado después de numerosas iteraciones.\\
+
+Para hacer lo más sencilla posible la aplicación, se optado por agrupar toda la funcionalidad necesaria para las terapias en una sola ventana. Para evitar que la aplicación sea confusa, las distintas funcionalidades se han dividido en pequeños módulos, que son: Conexión con el robot, Conexión del Wiimote, Control de movimiento, Movimiento de la cabeza, Movimientos, Terapias, Sonidos y un botón para apagar el robot. Cada uno de estos módulos es responsable de una funcionalidad. En las siguientes secciones se expone cada una de estas funcionalidades.
+
+\subsection{Módulo de conexión con el robot}
+\label{subsec:conexionrobot}
+
+El módulo de conexión con el robot (Figura \ref{fig:captura-cien-conexionrobot}), se encarga de gestionar la conexión por red con el robot. Dispone de un campo de texto en donde se introduce la dirección del robot. El estado de la conexión se puede ver por medio de una etiqueta y una barra de progreso. También dispone de un botón multifunción que, dependiendo del estado en el que se encuentra la conexión, sirve para conectarse o desconectarse.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[scale=0.75]{img/cap4/captura-cien-conexionrobot}
+  \end{center}
+  \caption{Captura de pantalla del módulo de conexión con el robot.}
+  \label{fig:captura-cien-conexionrobot}
+\end{figure}
+
+La dirección del robot puede introducirse de dos maneras: a través de su ip o a través del nombre del robot junto con el dominio \texttt{.local}. El puerto que utiliza BICA no es necesario conocerlo, la aplicación lo pone automáticamente. Para averiguar el número de puerto se sigue la norma de sumar el último número de la dirección ip del robot a 10.000, es decir, si la ip del robot termina en 112, se suma 2 a 10.000, por lo que el puerto de conexión es el 10.002.\\
+
+Se ha simplificado al máximo la conexión con el robot eliminando términos técnicos informáticos como ip y puerto. Simplemente conociendo el nombre del robot y agregando el dominio \texttt{.local}, el terapeuta que lo utilice puede conectarse a él, la resolución del nombre se hace automáticamente gracias a las bibliotecas de \textit{Avahi}. Esta biblioteca ofrece, entre otros servicios, un servicio de \textit{multicast DNS} para la resolución de nombre en redes de área local.\\
+
+Respecto al método de conexión con el que se contaba antes, se ha simplificado el proceso. Los términos ip y puerto son básicos en área de redes informáticas, pero pueden confundir a un usuario sin conocimientos informáticos. Con este método que se acaba de explicar se simplifica la conexión con el robot.
+
+\subsection{Módulo de conexión con el Wiimote}
+\label{subsec:conexionwiimote}
+
+El módulo de conexion con el Wiimote (Figura \ref{fig:captura-cien-conexionwiimote}), funciona de forma parecida al módulo de conexión con el robot. El estado de la conexión se muestra a través de una etiqueta y de una barra de progreso. Sólo se dispone un botón que, dependiendo del estado en el que se encuentra la conexión con el Wiimote, sirve para conectarse o desconectarse.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[scale=0.75]{img/cap4/captura-cien-conexionwiimote}
+  \end{center}
+  \caption{Captura de pantalla del módulos de conexion del Wiimote.}
+  \label{fig:captura-cien-conexionwiimote}
+\end{figure}
+
+Cuando se pulsa el botón de conectar, la aplicación inicia una búsqueda a través del bluetooth de los mandos disponibles. Para conectar el mando es necesario pulsar simultáneamente los botones 1 y 2. Los LEDs del mando se pondrán a parpadear mientras se sincronizan los dispositivos. Si se establece la conexión con éxito, el mando vibra y se queda iluminado el primer LED de éste.\\
+
+Este componente gráfico es genuino del desarrollo que se ha realizado en este proyecto. Anteriormente, no existía ningún componente que permitiese teleoperar al robot con el Wiimote.
+
+\subsection{Módulo de control de movimientos del cuerpo}
+\label{subsec:movimientoscuerpo}
+
+El módulo de control de movimientos del cuerpo está dividido en dos. Por un lado tenemos un teleoperador para mover al robot (Figura \ref{fig:captura-cien-body}) y, por el otro, un selector de movimientos. El teleoperador está compuesto por tres sliders que controlan cada uno de los posibles desplazamientos del robot: adelante/atrás, rotar a un lado y al otro, y el desplazamiento lateral. También dispone de un botón de parada. El selector de movimientos está compuesto por una única lista desplegable con los movimientos disponibles.\\
+
+\begin{figure}[hbtp]
+  \centering
+  \subfloat[Teleoperador del robot.]{
+    \label{fig:captura-cien-body}
+    \includegraphics[scale=0.75]{img/cap4/captura-cien-body}
+  }
+  \subfloat[Selector de movimientos.]{
+    \label{fig:captura-cien-movimientos}
+    \includegraphics[scale=0.75]{img/cap4/captura-cien-movimientos}
+  }
+  \caption{Capturas de pantalla de los módulos de control de movimientos del cuerpo.}
+  \label{fig:movimientoscuerpo}
+\end{figure}
+
+Para teleoperar al robot se utilizan los sliders. Éstos regulan la velocidad a la que se ejecuta el desplazamiento, cuanto más al extremo, más rápido se moverá el robot. Los sliders pueden utilizarse conjuntamente.\\
+
+El selector de movimientos es configurable a través de un fichero de texto. Este se encuentra en el directorio \texttt{conf} del proyecto y se llama \texttt{movements.conf}. La sintaxis del fichero es muy sencilla. Las líneas que comienzan con ''\#'' se consideran comentarios y los nombres de los movimientos se escribirán uno en cada línea. Esto hace que insertar y eliminar movimientos de la aplicación sea una tarea sencilla. También permite poder ver todos los movimientos de un vistazo y elegir el más conveniente para la acción que se quiera realizar. A continuación se muestra un fragmento de un fichero de configuración.
+
+\begin{lstlisting}[style=sh, numbers=none] 
+# Fichero de configuración del módulo de movimientos.
+# -----------------------------------------------------
+# Las líneas que comienzan con un # se consideran comentarios.
+Hola
+Adios
+Flamenco
+Introduccion
+\end{lstlisting}
+
+Esta nueva interfaz gráfica para teleoperar el desplazamiento del robot es más intuitiva, ya que se ha seguido el criterio de girar, o desplazarse en el caso del movimiento lateral, hacia el mismo lado que se mueve el slider. Es decir, si se desplaza el slider a la derecha, el robot gira o se desplaza a la derecha. Por otro lado, se ha mejorado y facilitado el acceso a los movimientos que puede realizar el robot, mostrando los disponibles en un menú desplegable. Esto evita tener que conocer el nombre de los movimientos que puede ejecutar el robot. Para reproducir un movimiento simplemente hay que seleccionarlo.
+
+\subsection{Módulo de control de movimientos de la cabeza}
+\label{subsec:movimientoscabeza}
+
+El módulo de control de los movimientos de la cabeza (Figura \ref{fig:captura-cien-cabeza}) permite teleoperar el cuello del robot y hacer que \textit{mire} a los pacientes. Poder dirigir la mirada del robot a los pacientes y establecer un contacto visual, ayuda al robot a integrarse en mayor medida con los pacientes de las terapias y les incita a participar. La comunicación con contacto visual siempre es más natural. Se maneja con dos sliders, uno sirve para ajustar el movimiento horizontal y el otro para ajustar el movimiento vertical. Además, dispone de un botón para centrar la cabeza.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[scale=0.75]{img/cap4/captura-cien-cabeza}
+  \end{center}
+  \caption{Captura de pantalla del módulo de control de la cabeza.}
+  \label{fig:captura-cien-cabeza}
+\end{figure}
+
+La posición donde se encuentra el slider indica la posición de la cabeza, coincidiendo la posición máxima del slider con la posición máxima de la cabeza. Se ha preferido implementar uno sólo de los dos métodos de control de la cabeza para que la tarea sea más sencilla y no complicar las cosas a la terapeuta.
+
+\subsection{Módulo de control de terapias}
+\label{subsec:terapias}
+
+El módulo de control de las terapias (Figura \ref{fig:captura-cien-terapias}) se encarga de ejecutar los guiones de las terapias. Esta formado por unos botones con los que se cargan las terapias, un botón para ejecutar la siguiente acción de la terapia y otro para seleccionar una línea concreta del guión y ejecutarla directamente.\\
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[scale=0.75]{img/cap4/captura-cien-terapias}
+  \end{center}
+  \caption{Captura de pantalla del módulo de control de las terapias.}
+  \label{fig:captura-cien-terapias}
+\end{figure}
+
+Para usar este módulo, lo primero es cargar una terapia mediante el botón correspondiente. Una vez cargada la terapia, se habilitan los botones situados en la parte inferior. El botón situado a la derecha es el que más se utiliza. Sirve para comenzar la terapia y para continuar la siguiente acción, cuando el robot efectúa una pausa. El campo de texto situado a la izquierda sirve para introducir el número de línea que quieres ejecutar y con el botón \textit{Ir a} se inicia la acción.\\
+
+La función de poder escoger el número de línea que se quiere ejecutar es muy útil cuando se quieren hacer saltos en la sesión. Normalmente, los guiones se ejecutan enteros, pero en ocasiones, por falta de tiempo, se acortan. También es muy útil cuando ocurre algún problema con el robot. El más habitual es que se agote la batería. En estos casos se puede retomar la sesión donde se quedó.\\
+
+En un principio, para poder ejecutar el siguiente comando de un guión había que pulsar siempre el botón situado en la punta del pie izquierdo. Esto era incómodo y tedioso para el terapeuta, ya que le obligaba a estar cerca del robot para poder pulsar el botón y continuar con la terapia. Esta funcionalidad se ha mantenido, pero gracias al botón de \textit{Siguiente} se puede ejecutar el comando siguiente sin necesidad de pulsar el botón del pie. Esto aporta al terapeuta mayor autonomía y facilita la interacción con los pacientes, ya que puede moverse por todo el aula.\\
+
+Respecto al interfaz anterior se ha implementado solamente la funcionalidad de reproducir guiones. Un terapeuta que está realizando una sesión no puede ponerse a editar el guión, porque no puede desatender a los pacientes. En caso de que haya necesidad de modificar un guión, se hace después de haber realizado la terapia. Para facilitar la acción de cargar el guión, éstos se muestran en la interfaz gráfica y se cargan pulsando el botón correspondiente. El control del guión también se ha simplificado gracias a los botones \textit{Ir a} y \textit{Comenzar/Siguiente}.
+
+\subsection{Módulo de control de sonidos}
+\label{subsec:sonidos}
+
+La funcionalidad de poder encolar ficheros de audio es muy útil porque permite crear frases sencillas con varios ficheros. Si se tienen las palabras ''¡Hola!'', ''¿Qué tal?'', ''Emma'' y ''María'', se pueden crear frases como ''¡Hola! ¿Qué tal Emma?'' o ''¡Hola María! ¿Qué tal?''. Los sonidos y frases que reproduce el robot sirven para estimular y captar la atención de los pacientes. Esto es importante en los enfermos más graves.\\
+
+El módulo de control de sonidos (Figura \ref{fig:captura-cien-sonidos}) es el responsable de controlar los sonidos que reproduce el robot. Este módulo está compuesto por una lista con los audios disponibles, una cola de reproducción y un slider que controla el volumen.
+
+\begin{figure} [hbtp]
+  \begin{center}
+    \includegraphics[scale=0.75]{img/cap4/captura-cien-sonidos}
+  \end{center}
+  \caption{Captura de pantalla del módulo de control de sonidos.}
+  \label{fig:captura-cien-sonidos}
+\end{figure}
+
+Para reproducir un sonido, simplemente hay que hacer doble click sobre su nombre y el sonido se añade a la cola de reproducción. En caso de estar en primer lugar se reproduce, pero si ya hay un fichero sonando, éste se encola y se reproduce cuando el primer fichero termine. Para parar la reproducción de un fichero que está sonando, hay que hacer doble click sobre su nombre en la lista de reproducción. Éste se para y se reproduce el siguiente, en caso de haya alguno. Si hacemos doble click sobre un fichero encolado, éste se elimina de la cola. El volumen de reproducción se ajusta mediante el slider.\\
+
+Los ficheros de audio disponibles se configuran mediante un fichero que sigue la misma sintaxis que el fichero de configuración del módulo de movimientos, pero éste se llama \texttt{sounds.conf} y se encuentra el directorio \texttt{conf}. Los nombres de los ficheros de audio se deben escribir uno en cada línea del fichero.\\
+
+Al igual que ocurre con los movimientos o con los guiones de las terapias, los ficheros de audio disponibles se muestran en la interfaz gráfica para que sean más accesibles. Por otro lado, la reproducción de uno de estos ficheros se ha simplificado. La funcionalidad de encolar los ficheros es genuina de este proyecto.
+
+\section{Control remoto}
+\label{sec:wii}
+
+Aunque la aplicación es adecuada a las necesidades de actuación del robot, requiere un operador. En las sesiones se vio la necesidad de dar mayor autonomía al terapeuta facilitándole el control del robot durante las sesiones. Para ello se ha implementado un control remoto usando el Wiimote. En la sección \ref{sec:wiimote} se habla de las características del mando y de las razones por las que se ha elegido. La implementación final del mando, al igual que el desarrollo del resto de la aplicación, se ha realizado por medio de prototipos. Se han probado distintas configuraciones hasta conseguir una que ha sido aceptada y validada por los terapeutas de la Fundación.\\
+
+Para poder utilizar el mando para teleoperar al robot, lo primero es enlazarlo con la aplicación. Para ello se procede tal y como se ha explicado en \ref{subsec:conexionwiimote}. Una vez realizado el enlace, el sistema ya está listo para ser manejado por el mando. Solamente se ha implementado la funcionalidad básica de teleoperación del robot para simplificar al máximo el control del mando. Las operaciones que se pueden realizar son: teleoperar el movimiento del robot, teleoperar la cabeza y teleoperar la reproducción de un guión de sesión.\\
+
+\begin{description}
+\item[Teleoperar al robot.] El control del movimiento del robot se ha realizado a través de la cruz de dirección. Para caminar hacia adelante o hacia atrás, sólo hay que pulsar el botón de arriba y abajo respectivamente. De la misma manera, para rotar a la derecha o a la izquierda se hace pulsando los botones derecho e izquierdo. El control del movimiento adelante/atrás es distinto del control de rotación. Para que el robot empiece a caminar hacia adelante o hacia atrás sólo hay que pulsar la flecha correspondiente y soltar. El robot comienza a caminar y no se detiene hasta que no se pulsa el botón A. En cambio, para el control de rotación es necesario pulsar el botón y mantenerlo pulsado todo el tiempo que se quiera girar. Cuando se suelta la flecha de dirección izquierda o derecha el robot deja de girar. Los giros pueden hacerse tanto con el robot parado, donde éste gira en el sitio, o con el robot caminando, donde se combinan los dos movimientos realizando una curva.
+
+\item[Teleoperar la cabeza.] El control de la cabeza se realiza también a través de la cruz de dirección, pero es necesario mantener pulsado el botón Z a la vez que se pulsan las flechas de dirección, para diferenciar cuando se quiere teleoperar al robot de cuando se quiere teleoperar la cabeza. El botón Z está situado detrás del mando y tiene forma de gatillo. Cada vez que se pulsa una flecha de dirección, se mueve la cabeza 10º en esa misma dirección. Para centrar rápidamente la cabeza se hace pulsando el botón A al mismo tiempo que se tiene pulsado el botón Z.
+
+\item[Reproducción de un guión de sesiones.] La única acción del reproductor de sesiones que se ha implementado es la acción de ejecutar el comando siguiente, que es la funcionalidad más básica de este componente. Para ellos se ha de pulsar el botón +. Antes de poder usar esta funcionalidad es necesario cargar una sesión desde la interfaz gráfica. 
+\end{description}
+
+\section{Implementación de sesiones}
+\label{sec:sesiones}
+
+Junto con el desarrollo de esta aplicación, hemos implementado varias guiones de terapias. Todos los guiones son escritos por los investigadores de la Fundación CIEN y están adaptados para pacientes con la enfermedad de Alzheimer. Cada grupo de pacientes tiene sus propias sesiones ajustadas al desarrollo de la enfermedad. Durante el tiempo que se realizan las terapias en un grupo, siempre se ejecuta el mismo guión.\\
+
+Ahora mismo existen tres tipos de sesiones: terapia ocupacional, musicoterapia y fisioterapia. Cada una de ellas está enfocada a activar y desarrollar unos aspectos concretos.
+
+\begin{description}
+\item[Terapia ocupacional.] Las sesiones de terapia ocupacional están compuestas por varios ejercicios. Los objetivos de estos ejercicios son estimular y mantener las capacidades mentales de los pacientes, evitar la desconexión con el entorno y fortalecer las relaciones sociales, entre otros. Los ejercicios que se realizan son adivinanzas, operaciones aritméticas simples, relacionar objetos, tareas de vocabulario y léxico, tareas de comprensión y refranes. A continuación se muestran fragmentos de una de las sesiones de terapia ocupacional:
+
+\begin{lstlisting}[style=sh, numbers=none] 
+1. Buenos días a todos. Hoy tengo muchas ganas de jugar, así que espero que todos vosotros tengáis ganas de jugar conmigo.
+2. Es un juego de adivinanzas. Yo os voy a ir dando pistas y tenéis que adivinar lo que yo estoy pensando.
+3. Es una fruta roja, que se come a mordiscos, y cuando está pocha le salen gusanos.
+4. Manzana
+...
+50. Ahora vamos a jugar a sumar y restar.
+51. 3 + 4
+52. 7
+...
+87. Ahora tenéis que decirme en qué se parecen.
+88. El zumo de naranja y la leche.
+89. Son bebidas que tomamos en el desayuno.
+...
+120. Ahora, tenéis que decirme cómo se llama la persona que se dedica a.
+121. La persona que hace muebles.
+122. Carpintero.
+...
+156. Ahora tenéis que decirme qué palabra se relaciona con.
+157. Que se relaciona con el pie: ¿la cabeza o un calcetín?
+...
+195. Ahora vamos a hacer un juego de refranes.
+196. A quien madruga...
+197. Dios le ayuda.
+...
+Lo habéis hecho todo genial, muy bien. Así que, con esto y un bizcocho, ¡hasta mañana a las ocho! ¡Adióooooos!
+\end{lstlisting}
+
+A lo largo de la sesión se intercalan frases de refuerzo como ''¡Muy bien!'' o ''¡Genial!''. Con cada una de las frases el robot realiza movimientos con los brazos y la cabeza para captar mejor la atención de los pacientes.
+
+\item[Musicoterapia.] El esqueleto principal de las sesiones de musicoterapia son las canciones. Antes de cada canción se realizan una o dos preguntas relacionadas con la canción. A continuación se muestra un fragmento de una sesión de musicoterapia:
+
+\begin{lstlisting}[style=sh, numbers=none] 
+1. Buenos días a todos, hoy tengo muchas ganas de cantar, así que espero que todos vosotros queráis cantar conmigo.
+2. ¿Sabéis donde vivimos?
+3. Vivimos en Madrid, así que como estamos en Madrid me vais a decir calles de esta ciudad.
+4. ¿Alguien sabe una canción que diga: 'Por la calle de Alcalá'?
+Se reproduce la canción ''Por la calle de Alcalá''.
+5. Muy bien. ¡Un aplauso!
+6. Hay una canción que habla de los meses del año, ¿sabéis cual es?
+7. Esta canción es típica de los San Fermines.
+Se reproduce la canción ''San Fermín''.
+...
+28. ¡Qué bien habéis cantado hoy! Un aplauso para todos.
+29. Me despido. Espero volver a veros a todos el próximo día.
+Se reproduce la canción ''Adiós con el corazón''.
+\end{lstlisting}
+
+Las canciones que se escuchan en esta terapia son canciones populares españolas, para que las conozcan todos los pacientes y puedan cantarlas.
+
+\item[Fisioterapia.] Las sesiones de fisioterapia están compuestas por ejercicios en los que se anima al paciente a mover distintas partes del cuerpo. Las sesiones están preparadas por fisioterapeutas. A continuación se muestra fragmentos de una sesión:
+
+\begin{lstlisting}[style=sh, numbers=none] 
+1. ¡Hola chicos! Vamos a trabajar un poquito una tabla de gimnasia.
+2. Venga, culete para atrás de la silla, espalda recta y los dos pies en el suelo sin cruzar.
+3. Vamos a empezar por la cabeza y moveremos todo el cuerpo hasta los pies.
+4. Venga, vamos a trabajar el cuello.
+5. Arriba/abajo 1..10.
+...
+9. Ya hemos terminado con el cuello. Vamos a mover los brazos.
+10. Vamos a ponerlos a lo largo del cuerpo y los subimos y los bajamos.
+11. Arriba/abajo 1..10.
+...
+24. Ya hemos trabajado el cuello, los brazos y las  manos, así que vamos con la cintura.
+25. Manos en la cintura y cuerpo hacia adelante, venga.
+26 Abajo/arriba 1..10.
+27. ¡Genial!
+28. Ahora vamos con las piernas. Venga, vamos a dar patadas
+29. 1..10.
+...
+50. Buenos chicos, lo habéis hecho muy bien. Gracias por colaborar. Espero veros otro día. ¡Adiós!
+\end{lstlisting}
+
+Como el resto de sesiones, los guiones de fisioterapia están adaptados al grupo donde se ejecuta. Ésta en concreto se realiza en el centro de día, donde la mayoría de los ancianos se encuentran en etapas tempranas de la enfermedad y son capaces de realizar más ejercicios. Hacerlo con el robot estimula a los pacientes, ya que realizan los ejercicios imitando al robot.
+\end{description}
+
+
+
+
+
+
+
+
+
+
+
